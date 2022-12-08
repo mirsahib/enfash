@@ -1,11 +1,9 @@
 import React from 'react'
 import { Image, Text, TouchableOpacity, View } from 'react-native'
-import { TextInput } from 'react-native-gesture-handler'
 import styles from '../styles/main'
-//import RadioButton from '../components/RadioButton'
 import Icons from 'react-native-vector-icons/AntDesign'
 import { useNavigation, } from '@react-navigation/native'
-import { useTheme } from 'react-native-paper';
+import { TextInput, useTheme } from 'react-native-paper';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { AuthNavigationParams } from '../index'
 import { RadioButton } from 'react-native-paper';
@@ -27,15 +25,16 @@ const SignIn = () => {
           </View>{/* header end */}
           <View style={{ flex: 2, justifyContent: 'space-evenly', marginBottom: '5%' }}>
             <View >
-              <TextInput style={{ color: 'black', fontWeight: '500', borderBottomWidth: 1, borderBottomColor: "#BCC1BA" }} placeholderTextColor="#BCC1BA" placeholder='Name' />
+              <TextInput style={{ backgroundColor: 'white' }} label="Name" />
             </View>
             <View>
-              <TextInput style={{ color: 'black', fontWeight: '500', borderBottomWidth: 1, borderBottomColor: "#BCC1BA" }} placeholderTextColor="#BCC1BA" placeholder='Email' />
+              <TextInput style={{ backgroundColor: 'white' }} label="Email" />
             </View>
             <View>
-              <TextInput style={{ color: 'black', fontWeight: '500', borderBottomWidth: 1, borderBottomColor: "#BCC1BA" }} placeholderTextColor="#BCC1BA" placeholder='Password' />
+              <TextInput style={{ backgroundColor: 'white' }} secureTextEntry right={<TextInput.Icon icon="eye" />}
+                label="Password" />
             </View>
-            <View style={{ flexDirection: 'row',alignItems:'center' }}>
+            <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: '5%' }}>
               <RadioButton value="first"
                 status={checked === 'first' ? 'checked' : 'unchecked'}
                 onPress={() => setChecked('first')}
