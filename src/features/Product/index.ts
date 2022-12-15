@@ -1,5 +1,7 @@
 import { RouteProp } from "@react-navigation/native";
+import Header from "./components/Header";
 import Product from "./container/Product";
+import HeaderRight from "./components/HeaderRight";
 
 export type ProductNavParams ={
     Product:{
@@ -14,7 +16,9 @@ export type ProductNavProps = RouteProp<ProductNavParams,'Product'>
 
 
 const screen = {
-    Product:Product
+    Header:Header,
+    Product:Product,
+    HeaderRight:HeaderRight,
 }
 
 export default screen
