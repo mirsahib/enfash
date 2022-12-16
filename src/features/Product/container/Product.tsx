@@ -1,10 +1,11 @@
 import { View, Text, Image } from 'react-native'
 import React, { useState } from 'react'
-import { ProductNavProps } from '..'
-import { useRoute } from '@react-navigation/native'
+import { ProductNavParams, ProductNavProps } from '..'
+import { useNavigation, useRoute } from '@react-navigation/native'
 import { Button } from 'react-native-paper'
 import CounterButton from '../components/CounterButton'
 import { Rating } from 'react-native-ratings'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 
 const Product = () => {
   const { params } = useRoute<ProductNavProps>()
@@ -15,6 +16,10 @@ const Product = () => {
     const { productName } = params
     const str = productName.split("-")
     return str
+  }
+  const navigation = useNavigation<NativeStackNavigationProp<ProductNavParams>>()
+  const handleNavigation = ()=>{
+      navigation.navigate('Cart')        
   }
 
 
@@ -49,7 +54,7 @@ const Product = () => {
           <Text style={{ color: 'black', fontSize: 24, fontWeight: '600',flex:1 }}>$ {params.productPrice}</Text>
           <View style={{flex:2,flexDirection:'row',justifyContent:'flex-end',alignItems:'center'}}>
             <CounterButton buttonContainerStyle={{marginRight:'5%'}} buttonWidth={40} buttonheight={38} buttonRadius={15} buttonColor={"white"} />
-            <Button icon={"cart"} mode='contained' onPress={() => console.log('buy')}>Cart</Button>
+            <Button icon={"cart"} mode='contained' onPress={() => handleNavigation()}>Cart</Button>
           </View>
         </View>
       </View>

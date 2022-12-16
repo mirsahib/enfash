@@ -1,4 +1,3 @@
-import { View, Text } from 'react-native'
 import React from 'react'
 import ProductScreens from '../features/Product/'
 import Header from '../components/Header'
@@ -18,6 +17,7 @@ const ProductNavigator = () => {
             }} component={ProductScreens.Product}
             options={{headerRight:()=><HeaderRight/>,headerTitle:()=><Header/>,headerTitleAlign:'left'}}
             />
+            <Stack.Screen name="Cart" component={ProductScreens.Cart}/>
         </Stack.Navigator>
     )
 }
