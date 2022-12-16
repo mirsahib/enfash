@@ -11,15 +11,23 @@ const Header = () => {
 
     return (
 
-        <Searchbar
-            style={{ backgroundColor: '#E6E6E7',width:'85%', height: 40, borderRadius: 10 }}
-            inputStyle={{ fontSize: 16, padding: 0 }}
-            placeholder="Search"
-            onChangeText={onChangeSearch}
-            value={searchQuery}
-            elevation={0}
-        />
+        <View style={{ width:'90%' }}>
 
+            <Searchbar
+                style={{ 
+                    backgroundColor: '#E6E6E7',
+                    width: '85%', 
+                    height: 40, 
+                    borderRadius: 10,
+                    margin:0    
+                }}
+                inputStyle={{ fontSize: 16, padding: 0 }}
+                placeholder="Search"
+                onChangeText={onChangeSearch}
+                value={searchQuery}
+            />
+
+        </View>
     )
 }
 
