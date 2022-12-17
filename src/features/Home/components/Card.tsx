@@ -26,7 +26,7 @@ const CardComponent = (props: CardProps) => {
     return (
         <TouchableOpacity style={{
             width: 140,
-            height: 200,
+            paddingBottom:10,
             backgroundColor: 'white',
             borderRadius: 15
         }} onPress={()=>handleNavigation()} >
@@ -44,10 +44,6 @@ const CardComponent = (props: CardProps) => {
                     <Text style={{ color: theme.colors.primary, fontSize: 12, fontWeight: '500' }}>
                         $ {props.productPrice}
                     </Text>
-                </View>
-                <View style={{ width: 30, height: 30, borderRadius: 30 / 2, backgroundColor: theme.colors.primary, justifyContent: 'center', alignItems: 'center' }}>
-                    {/* favorite icon container */}
-                    <Icon name='favorite' color={'white'} size={20} />
                 </View>
             </View>
         </TouchableOpacity>

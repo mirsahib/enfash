@@ -12,7 +12,6 @@ const Home = () => {
     
     return (
         <View style={styles.container}>
-            {/* <SearchComponent/> */}
             <BannerComponent/>
             <ProductComponent/>
         </View>

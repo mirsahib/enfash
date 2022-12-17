@@ -2,6 +2,8 @@ import { BottomTabNavigationOptions } from "@react-navigation/bottom-tabs"
 import SearchComponent from "./SearchComponent"
 import {Props} from "../"
 import Icon from 'react-native-vector-icons/AntDesign'
+import QrCodeButton from "./QrCodeButton"
+import CoinButton from "./CoinButton"
 
 
 const TabBarOptions = (props:Props)=>{
@@ -11,7 +13,13 @@ const TabBarOptions = (props:Props)=>{
     switch(routeName) {
         case 'Home':
             result={
+                headerLeft:()=><QrCodeButton/>,
+                headerLeftContainerStyle:{justifyContent:'center',alignItems:'center'},
                 headerTitle: () => <SearchComponent />,
+                headerTitleAlign:'center',
+                headerTitleContainerStyle:{width:"90%"},
+                headerRight: () => <CoinButton/>,
+                headerRightContainerStyle:{justifyContent:'center',alignItems:'center'},
                 tabBarIcon: () => <Icon name="home" color={"black"} size={25} />,
                 tabBarLabel: "Home"
             }
