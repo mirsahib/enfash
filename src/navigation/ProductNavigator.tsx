@@ -15,7 +15,7 @@ const ProductNavigator = () => {
                 productImage: "",
                 productPrice: 0
             }} component={ProductScreens.Product}
-            options={{headerRight:()=><HeaderRight/>,headerTitle:()=><Header/>,headerTitleAlign:'left'}}
+            options={ProductScreens.NavigationOptions}
             />
             <Stack.Screen name="Cart" component={ProductScreens.Cart}/>
         </Stack.Navigator>
