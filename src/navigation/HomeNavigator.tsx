@@ -1,39 +1,21 @@
 import React from 'react'
-import HomeScreens from '../features/Home/index'
+import HomeScreens,{HomeNavigationParams} from '../features/Home/index'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import SearchComponent from '../features/Home/components/SearchComponent'
-import Icon from 'react-native-vector-icons/AntDesign'
-const Tab = createBottomTabNavigator()
+
+const Tab = createBottomTabNavigator<HomeNavigationParams>()
 
 const HomeNavigator = () => {
+
     return (
-        <Tab.Navigator >
+        <Tab.Navigator>
             <Tab.Screen name='Home' component={HomeScreens.Home}
-                options={{
-                    headerTitle: () => <SearchComponent />,
-                    tabBarIcon: () => <Icon name="home" color={"black"} size={25} />,
-                    tabBarLabel: "Home"
-                }} />
+                options={HomeScreens.TabBarOptions} />
             <Tab.Screen name='Message' component={HomeScreens.Message}
-                options={{
-                    headerShown: false,
-                    tabBarIcon: () => <Icon name="message1" color={"black"} size={25} />,
-                    tabBarLabel: "Message"
-                }} />
+                options={HomeScreens.TabBarOptions}  />
             <Tab.Screen name='Cart' component={HomeScreens.Cart}
-                options={{
-                    headerShown: false,
-                    tabBarIcon: () => <Icon name="shoppingcart" color={"black"} size={25} />,
-                    tabBarLabel: "Cart"
-                }}
-            />
+                options={HomeScreens.TabBarOptions} />
             <Tab.Screen name='Account' component={HomeScreens.Profile}
-                options={{
-                    headerShown: false,
-                    tabBarIcon: () => <Icon name="user" color={"black"} size={25} />,
-                    tabBarLabel: "Account"
-                }}
-            />
+                options={HomeScreens.TabBarOptions} />
         </Tab.Navigator>
     )
 }
