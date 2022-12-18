@@ -12,48 +12,40 @@ const Product = () => {
   const ratingCompleted = (rating: number) => {
     console.log("Rating is: " + rating)
   }
-  const processProductName = () => {
-    const { productName } = params
-    const str = productName.split("-")
-    return str
-  }
   const navigation = useNavigation<NativeStackNavigationProp<ProductNavParams>>()
-  const handleNavigation = ()=>{
-      navigation.navigate('Cart')        
+  const handleNavigation = () => {
+    navigation.navigate('Cart')
   }
 
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', }}>
-      <View style={{ flex: 2 }}>
-        <Image source={{ uri: params.productImage }} style={{ width: "100%", height: "90%" }} />
-      </View>
-      <View style={{ height: '25%', backgroundColor: 'white', borderTopLeftRadius: 25, borderTopRightRadius: 25, padding: '5%', justifyContent: 'space-between' }}>
+
+      <Image source={{ uri: params.image }} style={{ flex: 2, width: "100%", height: "90%", marginBottom: '5%' }} />
+
+      <View style={{ height: '30%', backgroundColor: 'white', borderTopLeftRadius: 25, borderTopRightRadius: 25, padding: '5%', justifyContent: 'space-between' }}>
         <View>
           {/* product name and discription */}
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-            <Text style={{ color: 'black', fontSize: 24, fontWeight: '600' }}>{processProductName()[0]}</Text>
-            {/* <Text style={{ color: 'black' }}>Rating</Text> */}
-            <Rating
-              type='custom'
-              onFinishRating={(rating: number) => ratingCompleted(rating)}
-              imageSize={20}
-              ratingColor='black'
-              ratingBackgroundColor='#A8A8A8'
-              tintColor='white'
-            />
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+            <Text style={{ color: 'black', fontSize: 24, fontWeight: '600', maxWidth: '70%' }} adjustsFontSizeToFit numberOfLines={3}>{params.title}</Text>
+            <View>
+              <Rating
+                type='custom'
+                onFinishRating={(rating: number) => ratingCompleted(rating)}
+                imageSize={20}
+                ratingColor='black'
+                ratingBackgroundColor='#A8A8A8'
+                tintColor='white'
+              />
+              <Text style={{ color: 'black' }}>Rating</Text>
+            </View>
           </View>
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-            <Text style={{ color: 'black' }}>{processProductName()[1]}</Text>
-            <Text style={{ color: 'black' }}>Rating</Text>
-          </View>
-
         </View>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
           {/* button */}
-          <Text style={{ color: 'black', fontSize: 24, fontWeight: '600',flex:1 }}>$ {params.productPrice}</Text>
-          <View style={{flex:2,flexDirection:'row',justifyContent:'flex-end',alignItems:'center'}}>
-            <CounterButton buttonContainerStyle={{marginRight:'5%'}} buttonWidth={40} buttonheight={38} buttonRadius={15} buttonColor={"white"} />
+          <Text style={{ color: 'black', fontSize: 24, fontWeight: '600', flex: 1 }}>$ {params.price}</Text>
+          <View style={{ flex: 2, flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center' }}>
+            <CounterButton buttonContainerStyle={{ marginRight: '5%' }} buttonWidth={40} buttonheight={38} buttonRadius={15} buttonColor={"white"} />
             <Button icon={"cart"} mode='contained' onPress={() => handleNavigation()}>Cart</Button>
           </View>
         </View>

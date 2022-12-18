@@ -1,4 +1,4 @@
-type ProductType = {
+export type ProductType = {
     id:string,
     title:string,
     price:number,
@@ -6,7 +6,6 @@ type ProductType = {
     category:string,
     image:string,
     rating:{rate:number,count:number}
-
 }
 const data:ProductType[] = [
     {

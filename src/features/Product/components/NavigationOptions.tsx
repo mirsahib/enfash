@@ -6,7 +6,6 @@ import HeaderRight from './HeaderRight'
 const NavigationOptions = (props:Props) => {
 
     const routeName = props.route.name
-    console.log(routeName)
     let result:NativeStackNavigationOptions={}
     switch(routeName){
         case 'Product':

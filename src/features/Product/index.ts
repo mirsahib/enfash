@@ -5,14 +5,18 @@ import HeaderRight from "./components/HeaderRight";
 import Cart from "../../container/Cart";
 import NavigationOptions from "./components/NavigationOptions";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
+type ProductType = {
+    id:string,
+    title:string,
+    price:number,
+    description:string
+    category:string,
+    image:string,
+    rating:{rate:number,count:number}
+}
 
 export type ProductNavParams ={
-    Product:{
-        id:string,
-        productImage:string,
-        productName:string,
-        productPrice:number,
-    },
+    Product:ProductType
     Cart:any
 }
 
