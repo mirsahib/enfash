@@ -13,12 +13,7 @@ const ProductComponent = () => {
                 numColumns={2}
                 columnWrapperStyle={{ flex: 1, justifyContent: 'space-around', marginVertical: '2%', marginHorizontal: '5%' }}
                 keyExtractor={(item) => item.id}
-                renderItem={(item) => <Card 
-                                        id={item.item.id} 
-                                        productName={item.item.title}
-                                        productImage={item.item.image}
-                                        productPrice={item.item.price}
-                                        />}
+                renderItem={(item) => <Card data={item.item}/>}
             />
         </View>
     )
