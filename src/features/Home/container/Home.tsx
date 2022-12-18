@@ -1,4 +1,4 @@
-import { View } from 'react-native'
+import { SafeAreaView, View } from 'react-native'
 import React from 'react'
 import styles from '../styles/main'
 import { Button, useTheme } from 'react-native-paper'
@@ -11,10 +11,10 @@ const Home = () => {
     const theme = useTheme()
     
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <BannerComponent/>
             <ProductComponent/>
-        </View>
+        </SafeAreaView>
     )
 }
 
