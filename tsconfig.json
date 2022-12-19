@@ -9,14 +9,14 @@
     "baseUrl": ".",
     "paths": {
       "@components/*": ["src/components/*"],
-      "@assets/*": ["./src/assets"],
-      "@container/*": ["./src/container"],
-      "@context/*": ["./src/context"],
-      "@features/*": ["./src/features"],
-      "@navigation/*": ["./src/navigation"],
-      "@store/*": ["./src/store"],
-      "@styles/*": ["./src/styles"],
-      "@utils/*": ["./src/utils"],
+      "@assets/*": ["./src/assets/*"],
+      "@container/*": ["./src/container/*"],
+      "@context/*": ["./src/context/*"],
+      "@features/*": ["./src/features/*"],
+      "@navigation/*": ["./src/navigation/*"],
+      "@store/*": ["./src/store/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@utils/*": ["./src/utils/*"],
       "@src/*": ["src/*"]
     },
     /* Completeness */
