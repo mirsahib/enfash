@@ -1,6 +1,5 @@
 //import { RouteProp } from "@react-navigation/native";
 import Home from "./container/Home";
-import Message from "./container/Message";
 import Cart from "@container/Cart";
 import Profile from "./container/Profile";
 import { RouteProp } from "@react-navigation/native";
@@ -21,7 +20,6 @@ export type Props = BottomTabScreenProps<HomeNavigationParams>
 
 const screen = {
     Home:Home,
-    Message:Message,
     Cart:Cart,
     Profile:Profile,
     TabBarOptions:TabBarOptions
