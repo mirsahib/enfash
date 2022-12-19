@@ -1,41 +1,62 @@
 import { BottomTabNavigationOptions } from "@react-navigation/bottom-tabs"
 import SearchComponent from "./SearchComponent"
-import {Props} from "../"
+import { Props } from "../"
 import Icon from 'react-native-vector-icons/AntDesign'
 import QrCodeButton from "./QrCodeButton"
 import CoinButton from "./CoinButton"
+import { Pressable, Text } from "react-native"
+import { useNavigation } from "@react-navigation/native"
+import { NativeStackNavigationProp } from "@react-navigation/native-stack"
+type MainNavigationParams = {
+    ProductNav: any,
+    HomeNav: any,
+    MessageNav: any,
+    CartNav:any
+}
 
 
-const TabBarOptions = (props:Props)=>{
+const TabBarOptions = (props: Props) => {
     const routeName = props.route.name
-    let result:BottomTabNavigationOptions={}
+    let result: BottomTabNavigationOptions = {}
+    const navigation = useNavigation<NativeStackNavigationProp<MainNavigationParams>>()
 
-    switch(routeName) {
+    switch (routeName) {
         case 'Home':
-            result={
-                headerLeft:()=><QrCodeButton/>,
-                headerLeftContainerStyle:{justifyContent:'center',alignItems:'center'},
+            result = {
+                headerLeft: () => <QrCodeButton />,
+                headerLeftContainerStyle: { justifyContent: 'center', alignItems: 'center' },
                 headerTitle: () => <SearchComponent />,
-                headerTitleAlign:'center',
-                headerTitleContainerStyle:{width:"90%"},
-                headerRight: () => <CoinButton/>,
-                headerRightContainerStyle:{justifyContent:'center',alignItems:'center'},
+                headerTitleAlign: 'center',
+                headerTitleContainerStyle: { width: "90%" },
+                headerRight: () => <CoinButton />,
+                headerRightContainerStyle: { justifyContent: 'center', alignItems: 'center' },
                 tabBarIcon: () => <Icon name="home" color={"black"} size={25} />,
                 tabBarLabel: "Home"
             }
             break
         case 'Message':
-            result={
+            result = {
                 headerShown: false,
+                tabBarLabel: "Message",
+                tabBarShowLabel: true,
                 tabBarIcon: () => <Icon name="message1" color={"black"} size={25} />,
-                tabBarLabel: "Message"
+                tabBarButton: (props) => (
+                    <Pressable {...props} onPress={() => navigation.navigate("MessageNav", { screen: "Message" })}>
+                        {props.children}
+                    </Pressable>
+                )
             }
             break
         case 'Cart':
-            result={
+            result = {
                 headerShown: false,
                 tabBarIcon: () => <Icon name="shoppingcart" color={"black"} size={25} />,
-                tabBarLabel: "Cart"
+                tabBarLabel: "Cart",
+                tabBarButton: (props) => (
+                    <Pressable {...props} onPress={() => navigation.navigate("CartNav", { screen: "Cart" })}>
+                        {props.children}
+                    </Pressable>
+                )
             }
             break
         case 'Account':

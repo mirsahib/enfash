@@ -1,20 +1,28 @@
 import { View, Text, Image, ScrollView } from 'react-native'
 import React, { useState } from 'react'
-import { ProductNavParams, ProductNavProps } from '..'
+import {  ProductNavProps } from '..'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import { Button } from 'react-native-paper'
 import CounterButton from '../components/CounterButton'
 import { Rating } from 'react-native-ratings'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+type MainNavigationParams = {
+  ProductNav: any,
+  HomeNav: any,
+  MessageNav: any,
+  CartNav:any
+}
+
+
 
 const Product = () => {
   const { params } = useRoute<ProductNavProps>()
   const ratingCompleted = (rating: number) => {
     console.log("Rating is: " + rating)
   }
-  const navigation = useNavigation<NativeStackNavigationProp<ProductNavParams>>()
+  const navigation = useNavigation<NativeStackNavigationProp<MainNavigationParams>>()
   const handleNavigation = () => {
-    navigation.navigate('Cart')
+    navigation.navigate('CartNav',{screen:'Cart'})
   }
 
 
