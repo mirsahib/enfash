@@ -1,5 +1,6 @@
 import React from 'react'
 import HomeScreens,{HomeNavigationParams} from '@features/Home'
+import MessageScreens from '@features/Messages'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 const Tab = createBottomTabNavigator<HomeNavigationParams>()
@@ -10,8 +11,8 @@ const HomeNavigator = () => {
         <Tab.Navigator>
             <Tab.Screen name='Home' component={HomeScreens.Home}
                 options={HomeScreens.TabBarOptions} />
-            <Tab.Screen name='Message' component={HomeScreens.Message}
-                options={HomeScreens.TabBarOptions}  />
+            <Tab.Screen name='Message' component={MessageScreens.Message} 
+                options={HomeScreens.TabBarOptions} />
             <Tab.Screen name='Cart' component={HomeScreens.Cart}
                 options={HomeScreens.TabBarOptions} />
             <Tab.Screen name='Account' component={HomeScreens.Profile}

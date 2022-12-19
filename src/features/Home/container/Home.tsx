@@ -1,9 +1,9 @@
-import { SafeAreaView } from 'react-native'
 import React from 'react'
 import styles from '../styles/main'
 import { useTheme } from 'react-native-paper'
 import BannerComponent from '../components/BannerComponent';
 import ProductComponent from '../components/ProductComponent';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 
 const Home = () => {
