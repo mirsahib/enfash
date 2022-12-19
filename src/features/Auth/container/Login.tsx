@@ -14,7 +14,7 @@ const Login = () => {
   return (
     <View style={styles.container}>
       <View style={{ flex: 1, marginBottom: '5%' }}>
-        <Image style={{}} source={require('../../../assets/Pattern.png')} />
+        <Image style={{}} source={require('@assets/Pattern.png')} />
       </View>
       <View style={{ backgroundColor: 'white', flex: 2, borderTopLeftRadius: 25, borderTopRightRadius: 25 }}>
         <View style={{ flex: 1, marginHorizontal: '5%', paddingBottom: '10%' }}>
