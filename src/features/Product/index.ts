@@ -2,7 +2,7 @@ import { RouteProp } from "@react-navigation/native";
 import Header from "./components/Header";
 import Product from "./container/Product";
 import HeaderRight from "./components/HeaderRight";
-import Cart from "../../container/Cart";
+import Cart from "@container/Cart";
 import NavigationOptions from "./components/NavigationOptions";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 type ProductType = {

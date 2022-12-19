@@ -1,5 +1,5 @@
 import React from 'react'
-import HomeScreens,{HomeNavigationParams} from '../features/Home/index'
+import HomeScreens,{HomeNavigationParams} from '@features/Home'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 const Tab = createBottomTabNavigator<HomeNavigationParams>()

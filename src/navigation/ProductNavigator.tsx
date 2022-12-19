@@ -1,10 +1,7 @@
 import React from 'react'
-import ProductScreens from '../features/Product/'
-import Header from '../components/Header'
+import ProductScreens from '@features/Product'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 const Stack = createNativeStackNavigator()
-
-const {HeaderRight} = ProductScreens 
 
 const ProductNavigator = () => {
     return (
