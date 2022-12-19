@@ -1,7 +1,7 @@
 //import { RouteProp } from "@react-navigation/native";
 import Home from "./container/Home";
 import Message from "./container/Message";
-import Cart from "./container/Cart";
+import Cart from "@container/Cart";
 import Profile from "./container/Profile";
 import { RouteProp } from "@react-navigation/native";
 import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
