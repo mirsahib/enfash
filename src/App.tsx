@@ -1,7 +1,9 @@
 import { Platform, StyleSheet } from 'react-native'
 import React from 'react'
-import { DefaultTheme, Provider as PaperProvider ,configureFonts} from 'react-native-paper';
+import { DefaultTheme, Provider as PaperProvider, configureFonts } from 'react-native-paper';
 import AppContainer from './navigation/index'
+import store from './store/'
+import { Provider } from 'react-redux';
 
 const fontConfig = {
   customVariant: {
@@ -20,21 +22,23 @@ const fontConfig = {
 
 const theme = {
   ...DefaultTheme,
-  colors:{
+  colors: {
     ...DefaultTheme.colors,
-    primary:'black',
-    secondary:'#BCC1BA',
-    background:'#FFFF'
+    primary: 'black',
+    secondary: '#BCC1BA',
+    background: '#FFFF'
   },
   //@ts-ignore
-  fonts:configureFonts({config:fontConfig})
+  fonts: configureFonts({ config: fontConfig })
 }
 
 const App = () => {
   return (
-    <PaperProvider theme={theme}>
-      <AppContainer />
-    </PaperProvider>
+    <Provider store={store}>
+      <PaperProvider theme={theme}>
+        <AppContainer />
+      </PaperProvider>
+    </Provider>
   )
 }
 
