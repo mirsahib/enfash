@@ -49,7 +49,7 @@ const Cart = () => {
         <View style={{ flex: 1, justifyContent: 'center' }}>
             <View style={{ height: '35%', marginTop: '5%' }}>
                 {/* shopping list */}
-                <FlatList data={data} keyExtractor={item => item.id} renderItem={(item) => <ItemList />} />
+                <FlatList data={data} keyExtractor={item => item.id} renderItem={(item) => <ItemList data={item.item}/>} />
                 <View style={{ alignItems: 'center' }}>
                     <TouchableOpacity style={{
                         width: 25,
