@@ -1,7 +1,7 @@
 import { View, Text, TouchableOpacity, ViewStyle } from 'react-native'
 import React, { useState } from 'react'
 import Icon from 'react-native-vector-icons/AntDesign';
-import styles, { buttonStyle } from '../styles/component'
+import styles, { buttonStyle } from '@styles/components'
 
 type CounterButtonProps = {
   leftBtnIcon?: string,
@@ -64,15 +64,14 @@ export const CounterButtonRounded = (props: CounterButtonProps) => {
   return (
     <View
       style={[styles.button_container, props.buttonContainerStyle]}>
-      <TouchableOpacity onPress={() => handleLeftBtn()} style={
-        buttonStyle({backgroundColor:props.buttonColor??'white',buttonWidth:props.buttonWidth??20,buttonHeight:props.buttonheight??20,buttonRadius:props.buttonRadius??10}).btnRight
-      } >
+      <TouchableOpacity onPress={() => handleLeftBtn()} style={[
+        buttonStyle({buttonColor:props.buttonColor??'white',buttonWidth:props.buttonWidth??20,buttonHeight:props.buttonheight??20}).btnRight,{borderRadius:10}]} >
         <Icon name={props.leftBtnIcon ?? 'minus'} size={props.iconSize ?? 20} color={props.iconColor ?? "black"} />
       </TouchableOpacity>
       <View style={{ marginHorizontal: 15 }}>
         <Text style={{ fontSize: props.textSize ?? 16, color: props.textColor ?? "black" }}>{counter}</Text>
       </View>
-      <TouchableOpacity onPress={() => handleRightBtn()} style={buttonStyle({backgroundColor:props.buttonColor??'black',buttonWidth:props.buttonWidth??20,buttonHeight:props.buttonheight??20,buttonRadius:props.buttonRadius??10}).btnLeft} >
+      <TouchableOpacity onPress={() => handleRightBtn()} style={[buttonStyle({buttonColor:props.buttonColor??'black',buttonWidth:props.buttonWidth??20,buttonHeight:props.buttonheight??20}).btnLeft,{borderRadius:10}]} >
         <Icon name={props.leftBtnIcon ?? 'plus'} size={props.iconSize ?? 20} color={props.iconColor ?? "white"} />
       </TouchableOpacity>
     </View>
