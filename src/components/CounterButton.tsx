@@ -3,9 +3,12 @@ import React, { useState } from 'react'
 import Icon from 'react-native-vector-icons/AntDesign';
 import styles, { buttonStyle } from '@styles/components'
 
+type buttonShape = "rounded"|"square"|"half-stadium"|"stadium"
+
 type CounterButtonProps = {
   buttonLeftAction:()=>void,
   buttonRightAction:()=>void,
+  buttonStyle?:buttonShape
   leftBtnIcon?: string,
   rightBtnIcon?: string,
   iconSize?: number | undefined,
