@@ -1,6 +1,4 @@
 import { StyleSheet } from 'react-native'
-
-
 interface ButtonProps {
     borderWidth?:number
     backgroundColor?: string,
@@ -53,4 +51,4 @@ const styles = StyleSheet.create({
       },
   });
   
-export default styles
+export default styles;

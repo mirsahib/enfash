@@ -1,5 +1,5 @@
 import { View, Text, TouchableOpacity, ViewStyle } from 'react-native'
-import React, { useState } from 'react'
+import React from 'react'
 import Icon from 'react-native-vector-icons/AntDesign';
 import styles, { buttonStyle } from '@styles/components'
 

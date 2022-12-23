@@ -5,6 +5,8 @@ import { Button } from 'react-native-paper'
 import Icon from 'react-native-vector-icons/AntDesign'
 import { Text } from 'react-native-paper'
 import { useAppSelector } from '@store/index'
+import DefaultScreen from './DefaultScreen'
+
 
 const { width, height } = Dimensions.get('screen')
 
@@ -58,7 +60,7 @@ const Cart = () => {
             <View style={{ flex: 1, paddingHorizontal: '5%' }}>
                 {/* payment button */}
                 <Button mode='contained' contentStyle={{ height: 60 }} >Proceed to Checkout</Button>
-            </View></>:<Text variant='titleSmall'>No product </Text>}
+            </View></>:<DefaultScreen message='No item in the shopping cart' buttonText='Continue Shopping'/>}
 
         </View>
     )
