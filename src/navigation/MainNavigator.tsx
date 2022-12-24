@@ -4,6 +4,7 @@ import HomeNavigator from './HomeNavigator'
 import ProductNavigator from './ProductNavigator'
 import MessageScreens from '@features/Messages'
 import Cart from '@container/Cart'
+import { createDrawerNavigator } from '@react-navigation/drawer'
 const Stack = createNativeStackNavigator()
 
 const MainNavigator = () => {
@@ -16,5 +17,6 @@ const MainNavigator = () => {
     </Stack.Navigator>
   )
 }
+
 
 export default MainNavigator

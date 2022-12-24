@@ -22,15 +22,16 @@ const TabBarOptions = (props: Props) => {
     switch (routeName) {
         case 'Home':
             result = {
-                headerTitle:()=><Header/>,
-                headerTitleAlign:'center',
-                headerStyle:{
-                    height:60
-                },
-                headerRight:()=><HeaderRight/>,
-                headerRightContainerStyle:{
-                    paddingHorizontal:'5%'
-                },
+                headerShown:false,
+                // headerTitle:()=><Header/>,
+                // headerTitleAlign:'center',
+                // headerStyle:{
+                //     height:60
+                // },
+                // headerRight:()=><HeaderRight/>,
+                // headerRightContainerStyle:{
+                //     paddingHorizontal:'5%'
+                // },
                 tabBarIcon: () => <Icon name="home" color={"black"} size={25} />,
                 tabBarLabel: "Home"
             }
