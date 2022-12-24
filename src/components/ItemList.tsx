@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/AntDesign'
 import { Text } from 'react-native-paper'
 import { ProductType } from '@utils/containerTypes'
 import { useAppDispatch } from '@store/index'
-import { addcart, removeFromCart } from '@store/cart'
+import { addTocart, removeFromCart } from '@store/cart'
 
 type ItemListProps = {
     data: {
@@ -22,7 +22,7 @@ const ItemList = (props: ItemListProps) => {
 
     const addItem = () => {
         if(product){
-            dispatch(addcart(product))
+            dispatch(addTocart(product))
         }
     }
     const removeItem = () => {

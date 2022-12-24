@@ -27,7 +27,31 @@ const cartSlice = createSlice({
     name: 'cart',
     initialState,
     reducers: {
-        addcart(state, action: PayloadAction<ProductType>) {
+        addToCartOnce(state, action: PayloadAction<ProductType>) {
+            const newItem = action.payload
+            const productCount = state.totalProduct
+            //check if cart is empty
+            if (productCount == 0) {
+                state.itemList = [{ product: newItem, count: 1, productPrice: newItem.price }]
+                state.totalProduct = state.totalProduct + 1
+                state.totalPrice = state.totalPrice + newItem.price
+            } else {
+                const productIndex = state.itemList.findIndex(item => item.product?.id == newItem.id)
+                //check if product exist
+                if (productIndex == -1) {
+                    state.itemList.push({
+                        product: newItem,
+                        count: 1,
+                        productPrice: newItem.price
+                    })
+                    state.totalProduct = state.totalProduct + 1
+                    state.totalPrice = state.totalPrice + newItem.price
+                }
+            }
+            
+            //console.log('add to cart', current(state))
+        },
+        addTocart(state, action: PayloadAction<ProductType>) {
             const newItem = action.payload
             const productCount = state.totalProduct
             //check if cart is empty
@@ -78,5 +102,5 @@ const cartSlice = createSlice({
     }
 })
 
-export const { addcart, removeFromCart } = cartSlice.actions
+export const { addToCartOnce, addTocart, removeFromCart } = cartSlice.actions
 export default cartSlice.reducer

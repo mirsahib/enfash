@@ -1,15 +1,17 @@
-import { View, Image, ScrollView } from 'react-native'
+import { View, Image, ScrollView, Dimensions } from 'react-native'
 import React, { useState } from 'react'
 import { ProductNavProps } from '..'
 import { useNavigation, useRoute } from '@react-navigation/native'
-import { Button, Text, useTheme } from 'react-native-paper'
-import CounterButton from '@components/CounterButton'
+import { Avatar, Button, Text, useTheme } from 'react-native-paper'
 import { Rating } from 'react-native-ratings'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { MainNavigationParams } from '@navigation/navigationTypes'
-import { addcart, removeFromCart } from '@store/cart'
+import { addToCartOnce } from '@store/cart'
 import { useAppDispatch, useAppSelector } from '@store/index'
+import Icon from 'react-native-vector-icons/MaterialIcons'
+import { SafeAreaView } from 'react-native-safe-area-context'
 
+const { width } = Dimensions.get('screen')
 
 const Product = () => {
   const { params } = useRoute<ProductNavProps>()
@@ -19,58 +21,75 @@ const Product = () => {
   const products = useAppSelector(state => state.shoppingCart.itemList)
   const product = products.find(item => item.product?.id === params.id)
 
-  const ratingCompleted = (rating: number) => {
-    console.log("Rating is: " + rating)
-  }
+  
   const handleNavigation = () => {
     navigation.navigate('CartNav', { screen: 'Cart' })
   }
   const addItem = () => {
-    dispatch(addcart(params))
+    dispatch(addToCartOnce(params))
   }
-  const removeItem = () => {
-    dispatch(removeFromCart(params))
-  }
+  
 
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', }}>
-      <Image source={{ uri: params.image }} style={{ flex: 1 }} />
-      <View style={{ flex: 1, backgroundColor: 'white', borderTopLeftRadius: 25, borderTopRightRadius: 25, padding: '5%', justifyContent: 'space-between' }}>
-        <View style={{ marginBottom: '2%' }}>
-          {/* product name and discription */}
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-            <Text variant='titleLarge' style={{ flex: 1, fontWeight: '700' }} adjustsFontSizeToFit numberOfLines={3}>{params.title}</Text>
-            <View>
-              <Rating
-                type='custom'
-                onFinishRating={(rating: number) => ratingCompleted(rating)}
-                imageSize={20}
-                ratingColor='black'
-                ratingBackgroundColor='#A8A8A8'
-                tintColor='white'
-                showRating
-                ratingCount={5}
-                startingValue={params.rating.rate}
-                style={{}}
-              />
-              <Text variant='bodySmall'>{params.rating.count} reviews</Text>
+    <SafeAreaView style={{ flex: 1, justifyContent: 'center', }}>
+      <Image source={{ uri: params.image }} style={{ flex: 1, alignSelf: 'center', width: '90%' }} />
+      {/* product name and discription */}
+      <ScrollView style={{ flex: 1, backgroundColor: 'white', borderTopLeftRadius: 25, borderTopRightRadius: 25, padding: '5%' }}>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+          <Text variant='labelLarge' style={{ flex: 1, paddingRight: '5%' }} adjustsFontSizeToFit numberOfLines={3}>{params.title}</Text>
+          <Icon name="favorite-outline" size={24} color={theme.colors.primary} />
+        </View>
+
+        <View style={{ flexDirection: 'row' }}>
+          <Rating
+            type='custom'
+            ratingColor={theme.colors.primary}
+            ratingBackgroundColor={theme.colors.secondary}
+            tintColor={"white"}
+            imageSize={20}
+            ratingCount={1}
+            readonly={true}
+            startingValue={params.rating.rate}
+            style={{ alignItems: 'flex-start', marginRight: '1%' }}
+          />
+          <Text>{params.rating.rate}</Text>
+        </View>
+
+        <View style={{ marginVertical: '5%' }}>
+          <Text variant='titleLarge' style={{ fontWeight: '700', marginBottom: '5%' }}>${params.price}</Text>
+          <Text variant='titleMedium' style={{ marginBottom: '5%' }}>Description</Text>
+          <Text style={{ color: theme.colors.secondary, marginBottom: '5%' }}>{params.description}</Text>
+          <Button mode='contained' onPress={()=>addItem()} icon='cart'>{product?"ITEM ADDED":"ADD TO CART"}</Button>
+        </View>
+        <View >
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+            <Text variant='titleMedium'>Reviews ({params.rating.count})</Text>
+            <Text style={{color:theme.colors.tertiary}}>View All</Text>
+          </View>
+          <View style={{ height: 2, backgroundColor: theme.colors.primary }}></View>
+          <View style={{ marginVertical: '5%', padding: '5%' }}>
+            {/* review container */}
+            <View style={{ flexDirection: 'row', marginBottom: '2%' }}>
+              <Avatar.Text size={40} label='CW' />
+              <View style={{ alignItems: 'flex-start', marginLeft: '5%' }}>
+                <Text>Cameroon Williamson</Text>
+                <Rating
+                  type='custom'
+                  ratingColor={theme.colors.primary}
+                  ratingBackgroundColor={theme.colors.secondary}
+                  tintColor={"white"}
+                  imageSize={20}
+                  ratingCount={5}
+                  readonly={true}
+                />
+              </View>
             </View>
+            <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente reiciendis accusamus quis dolorem quidem incidunt nesciunt quas deserunt minima pariatur suscipit, quos unde commodi alias repellat? Hic consequuntur quis animi.</Text>
           </View>
         </View>
-        <ScrollView >
-          <Text adjustsFontSizeToFit variant='bodyMedium'>{params.description}</Text>
-        </ScrollView>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: '2%' }}>
-          {/* button */}
-          <Text variant='headlineSmall' style={{ fontWeight: '700' }}>$ {params.price}</Text>
-          <View style={{ flex: 2, flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center' }}>
-            <CounterButton defaultValue={product ? product?.count : 0} buttonRightAction={() => addItem()} buttonLeftAction={() => removeItem()} buttonContainerStyle={{ marginRight: '5%' }} buttonWidth={40} buttonheight={38} buttonRadius={15} buttonColor={"white"} />
-            <Button icon={"cart"} mode='contained' onPress={() => handleNavigation()}>Cart</Button>
-          </View>
-        </View>
-      </View>
-    </View>
+      </ScrollView>
+    </SafeAreaView>
   )
 }
 

@@ -25,7 +25,8 @@ const theme = {
   colors: {
     ...DefaultTheme.colors,
     primary: 'black',
-    secondary: '#BCC1BA',
+    secondary: '#8C8C8C',
+    tertiary: '#A04F9B',
     background: '#FFFF'
   },
   //@ts-ignore
