@@ -1,11 +1,9 @@
 import { View, Image, ScrollView, Dimensions } from 'react-native'
-import React, { useState } from 'react'
+import React from 'react'
 import { ProductNavProps } from '..'
-import { useNavigation, useRoute } from '@react-navigation/native'
+import {  useRoute } from '@react-navigation/native'
 import { Avatar, Button, Text, useTheme } from 'react-native-paper'
 import { Rating } from 'react-native-ratings'
-import { NativeStackNavigationProp } from '@react-navigation/native-stack'
-import { MainNavigationParams } from '@navigation/navigationTypes'
 import { addToCartOnce } from '@store/cart'
 import { useAppDispatch, useAppSelector } from '@store/index'
 import Icon from 'react-native-vector-icons/MaterialIcons'
@@ -15,16 +13,13 @@ const { width } = Dimensions.get('screen')
 
 const Product = () => {
   const { params } = useRoute<ProductNavProps>()
-  const navigation = useNavigation<NativeStackNavigationProp<MainNavigationParams>>()
   const theme = useTheme()
   const dispatch = useAppDispatch()
   const products = useAppSelector(state => state.shoppingCart.itemList)
   const product = products.find(item => item.product?.id === params.id)
 
   
-  const handleNavigation = () => {
-    navigation.navigate('CartNav', { screen: 'Cart' })
-  }
+  
   const addItem = () => {
     dispatch(addToCartOnce(params))
   }

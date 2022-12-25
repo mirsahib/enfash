@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { ProductType } from '@utils/containerTypes'
 import { Card } from 'react-native-paper';
-import { MainNavigationParams } from '@navigation/navigationTypes'
+import { MainNavParams } from '@navigation/utils/NavigationTypes'
 
 type CardProps = {
     data: ProductType
@@ -12,7 +12,7 @@ type CardProps = {
 
 const CardComponent = (props: CardProps) => {
     const theme = useTheme()
-    const navigation = useNavigation<NativeStackNavigationProp<MainNavigationParams>>()
+    const navigation = useNavigation<NativeStackNavigationProp<MainNavParams>>()
     const handleNav= () => {
         navigation.navigate('ProductNav', { screen: 'Product', params: { ...props.data } })
     }
