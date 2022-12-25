@@ -1,8 +1,9 @@
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import AuthScreens from '@features/Auth'
+import { AuthNavParams } from './utils/NavigationTypes'
 
-const Stack = createNativeStackNavigator()
+const Stack = createNativeStackNavigator<AuthNavParams>()
 
 const AuthNavigator = () => {
   return (

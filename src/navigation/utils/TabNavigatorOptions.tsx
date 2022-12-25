@@ -1,38 +1,21 @@
 import { BottomTabNavigationOptions } from "@react-navigation/bottom-tabs"
-import { Props } from "../"
-import Icon from 'react-native-vector-icons/AntDesign'
-import { Pressable, Text } from "react-native"
 import { useNavigation } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "@react-navigation/native-stack"
-import Header from "./Header"
-import HeaderRight from "./HeaderRight"
-type MainNavigationParams = {
-    ProductNav: any,
-    HomeNav: any,
-    MessageNav: any,
-    CartNav:any
-}
+import { MainNavParams, TabScreenProps } from "./NavigationTypes"
+import Icon from 'react-native-vector-icons/AntDesign'
+import { Pressable } from "react-native"
 
 
-const TabBarOptions = (props: Props) => {
+const TabNavigatorOptions = (props: TabScreenProps) => {
     const routeName = props.route.name
     let result: BottomTabNavigationOptions = {}
-    const navigation = useNavigation<NativeStackNavigationProp<MainNavigationParams>>()
+    const navigation = useNavigation<NativeStackNavigationProp<MainNavParams>>()
 
     switch (routeName) {
         case 'HomeTab':
             result = {
-                headerShown:false,
-                // headerTitle:()=><Header/>,
-                // headerTitleAlign:'center',
-                // headerStyle:{
-                //     height:60
-                // },
-                // headerRight:()=><HeaderRight/>,
-                // headerRightContainerStyle:{
-                //     paddingHorizontal:'5%'
-                // },
-                tabBarHideOnKeyboard:true,
+                headerShown: false,
+                tabBarHideOnKeyboard: true,
                 tabBarIcon: () => <Icon name="home" color={"black"} size={25} />,
                 tabBarLabel: "Home"
             }
@@ -74,5 +57,4 @@ const TabBarOptions = (props: Props) => {
     }
     return result
 }
-
-export default TabBarOptions
+export default TabNavigatorOptions

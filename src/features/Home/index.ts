@@ -7,7 +7,7 @@ import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
 import TabBarOptions from "./components/TabBarOption";
 
 export type HomeNavigationParams = {
-    Home: any,
+    HomeTab: any,
     Message:any,
     Cart:any,
     Account:any
