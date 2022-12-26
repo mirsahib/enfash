@@ -1,79 +1,64 @@
 import React from 'react'
 import styles from '../styles/main'
-import { Searchbar, Text, useTheme } from 'react-native-paper'
+import { Text,  } from 'react-native-paper'
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { View } from 'react-native';
-import Card from '../components/Card'
+import {  View } from 'react-native';
+import CatagoryCard from '../components/CatagoryCard';
 import { FlatList } from 'react-native-gesture-handler'
-import data from '../utils/data'
+import ProductComponent from '../components/ProductComponent';
+import FlatListHeader from '../components/FlatListHeader';
 
 const catagories = [
     {
         id: '1',
-        name: "men's clothing"
+        name: "men's clothing",
+        icon: require("@assets/icons/tshirt.png"),
     },
     {
         id: '2',
-        name: "women's clothing"
+        name: "women's clothing",
+        icon: require("@assets/icons/dress.png"),
     }, {
         id: '3',
-        name: 'electronics'
+        name: 'electronics',
+        icon: require("@assets/icons/responsive.png"),
     }, {
         id: '4',
-        name: 'jewelery'
+        name: 'jewelry',
+        icon: require("@assets/icons/jewelry.png"),
     }
 
 ]
 
 const Home = () => {
-    const theme = useTheme()
-    const [searchQuery, setSearchQuery] = React.useState('');
-
-    const onChangeSearch = (query: string) => setSearchQuery(query);
-
-
-
 
     return (
         <SafeAreaView style={styles.container}>
-            <View style={{ flex: 1, padding: '5%', justifyContent: 'space-evenly' }}>
-                <Text variant='titleMedium' >Find the best deals,delivered to your door</Text>
-                <Searchbar
-                    placeholder="Search"
-                    onChangeText={onChangeSearch}
-                    value={searchQuery}
-                    style={{ backgroundColor: 'white', borderRadius: 10 }}
-                    elevation={0}
-                />
-                <View>
-                    <FlatList
-                        data={catagories}
-                        keyExtractor={(item) => item.id}
-                        horizontal={true}
-                        ItemSeparatorComponent={() => <View style={{ width: 10, }}></View>}
-                        renderItem={(item) => {
-                            return (
-                                <View style={{justifyContent:'center',alignItems:'center', backgroundColor: 'white',width:80,height:30 }}>
-                                    <Text style={{fontWeight:'bold'}} adjustsFontSizeToFit>{item.item.name}</Text>
-                                </View>
-                            )
-                        }}
-                    />
-                </View>
-
-            </View>
-
-
-            <View style={{ flex: 3 }}>
+            <View style={{ flex: 1, paddingHorizontal: '5%'  }}>
                 <FlatList
-                    data={data}
+                    ListHeaderComponent={
+                        <FlatListHeader />
+                    }
+                    ListFooterComponent={
+                        <>
+                            <Text variant='titleMedium'>Best Seller</Text>
+                            <ProductComponent />
+                        </>
+                    }
+                    ListHeaderComponentStyle={{
+                        justifyContent:'space-evenly',
+                        alignItems:'center'
+                    }}
+                    ListFooterComponentStyle={{
+                        marginVertical:'5%'
+                    }}
+                    data={catagories}
                     numColumns={2}
-                    columnWrapperStyle={{ flex: 1, justifyContent: 'space-around', marginVertical: '2%', marginHorizontal: '5%' }}
+                    columnWrapperStyle={{ flex: 1, justifyContent: 'space-around', margin: '2%' }}
                     keyExtractor={(item) => item.id}
-                    renderItem={(item) => <Card data={item.item} />}
+                    renderItem={(item) => <CatagoryCard data={item.item} />}
                 />
             </View>
-
         </SafeAreaView>
     )
 }

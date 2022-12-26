@@ -27,6 +27,10 @@
 		89FE101EAE7A4F1784B19D89 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 45504A0A638A46169E2F1248 /* Roboto-Thin.ttf */; };
 		3E7EEF5BEB8648A0906EFB1F /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CD9D222D61AA4C7DAB9F9627 /* Roboto-ThinItalic.ttf */; };
 		63FEAEA6532141B8B23F2CFF /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = CFDA3A83B6734FD18F424BFD /* LICENSE.txt */; };
+		84615B2378CD4C9AAB1C1D7B /* dress.png in Resources */ = {isa = PBXBuildFile; fileRef = 290ABD7C36F349CB9DE3E86E /* dress.png */; };
+		124FE06D373E4A77A1BEABD5 /* jewelry.png in Resources */ = {isa = PBXBuildFile; fileRef = 1493D04307A645DC85799867 /* jewelry.png */; };
+		84102F62E3E344248D3C4855 /* responsive.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E9FF1CD362C4F6E94FAB983 /* responsive.png */; };
+		85B1C6D1F50A43609DA662ED /* tshirt.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8A945E52B346218A86308D /* tshirt.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +74,10 @@
 		45504A0A638A46169E2F1248 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; name = "Roboto-Thin.ttf"; path = "../src/assets/fonts/Roboto-Thin.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		CD9D222D61AA4C7DAB9F9627 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; name = "Roboto-ThinItalic.ttf"; path = "../src/assets/fonts/Roboto-ThinItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		CFDA3A83B6734FD18F424BFD /* LICENSE.txt */ = {isa = PBXFileReference; name = "LICENSE.txt"; path = "../src/assets/fonts/LICENSE.txt"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		290ABD7C36F349CB9DE3E86E /* dress.png */ = {isa = PBXFileReference; name = "dress.png"; path = "../src/assets/icons/dress.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		1493D04307A645DC85799867 /* jewelry.png */ = {isa = PBXFileReference; name = "jewelry.png"; path = "../src/assets/icons/jewelry.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9E9FF1CD362C4F6E94FAB983 /* responsive.png */ = {isa = PBXFileReference; name = "responsive.png"; path = "../src/assets/icons/responsive.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		AC8A945E52B346218A86308D /* tshirt.png */ = {isa = PBXFileReference; name = "tshirt.png"; path = "../src/assets/icons/tshirt.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +199,10 @@
 				45504A0A638A46169E2F1248 /* Roboto-Thin.ttf */,
 				CD9D222D61AA4C7DAB9F9627 /* Roboto-ThinItalic.ttf */,
 				CFDA3A83B6734FD18F424BFD /* LICENSE.txt */,
+				290ABD7C36F349CB9DE3E86E /* dress.png */,
+				1493D04307A645DC85799867 /* jewelry.png */,
+				9E9FF1CD362C4F6E94FAB983 /* responsive.png */,
+				AC8A945E52B346218A86308D /* tshirt.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -305,6 +317,10 @@
 				89FE101EAE7A4F1784B19D89 /* Roboto-Thin.ttf in Resources */,
 				3E7EEF5BEB8648A0906EFB1F /* Roboto-ThinItalic.ttf in Resources */,
 				63FEAEA6532141B8B23F2CFF /* LICENSE.txt in Resources */,
+				84615B2378CD4C9AAB1C1D7B /* dress.png in Resources */,
+				124FE06D373E4A77A1BEABD5 /* jewelry.png in Resources */,
+				84102F62E3E344248D3C4855 /* responsive.png in Resources */,
+				85B1C6D1F50A43609DA662ED /* tshirt.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

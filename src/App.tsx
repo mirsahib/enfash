@@ -6,7 +6,31 @@ import store from './store/'
 import { Provider } from 'react-redux';
 
 const fontConfig = {
-  fontFamily: 'Roboto'
+  regular: {
+    fontFamily:'Roboto',
+    fontWeight: 'Roboto-Regular',
+  },
+  medium: {
+    fontFamily:'Roboto',
+    fontWeight: 'Roboto-Medium',
+  },
+  light: {
+    fontFamily:'Roboto',
+    fontWeight: 'Roboto-Light',
+  },
+  thin: {
+    fontFamily:'Roboto',
+    fontWeight: 'Roboto-Thin',
+  },
+  bold:{
+    fontFamily:'Roboto',
+    fontWeight: 'Roboto-Bold',
+  },
+  italic:{
+    fontFamily:'Roboto',
+    fontWeight: 'Roboto-Italic',
+  }
+
 };
 
 

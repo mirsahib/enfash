@@ -52,6 +52,22 @@
     {
       "path": "src/assets/fonts/Roboto-ThinItalic.ttf",
       "sha1": "cc79d5a23bd0ec08b1d99f5390bf33cacc3082f4"
+    },
+    {
+      "path": "src/assets/icons/dress.png",
+      "sha1": "d08dfeb3f461b1b5e17c08fd8f22f00b9867061d"
+    },
+    {
+      "path": "src/assets/icons/jewelry.png",
+      "sha1": "6f0253e068621b6408788125eced5602b519c794"
+    },
+    {
+      "path": "src/assets/icons/responsive.png",
+      "sha1": "6f4c4d492c5d41afbbe4cd91d9ebf4257485bc2f"
+    },
+    {
+      "path": "src/assets/icons/tshirt.png",
+      "sha1": "266df42809ab009fe342096fcbdfcfb690395b2e"
     }
   ]
 }

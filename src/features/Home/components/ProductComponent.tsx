@@ -10,7 +10,7 @@ const ProductComponent = () => {
             <FlatList
                 data={data}
                 numColumns={2}
-                columnWrapperStyle={{ flex: 1, justifyContent: 'space-around', marginVertical: '2%', marginHorizontal: '5%' }}
+                columnWrapperStyle={{ flex: 1, justifyContent: 'space-around',margin:'2%' }}
                 keyExtractor={(item) => item.id}
                 renderItem={(item) => <Card data={item.item} />}
             />
