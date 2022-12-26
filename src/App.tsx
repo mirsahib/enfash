@@ -16,9 +16,10 @@ const theme = {
   colors: {
     ...DefaultTheme.colors,
     primary: 'black',
+    primaryContainer:'#EBEAEF',
     secondary: '#8C8C8C',
     tertiary: '#A04F9B',
-    background: '#FFFF'
+    background: '#FFF'
   },
   //@ts-ignore
   fonts: configureFonts({ config: fontConfig })
