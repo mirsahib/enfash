@@ -3,11 +3,14 @@ import { useNavigation } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "@react-navigation/native-stack"
 import { MainNavParams, TabScreenProps } from "./NavigationTypes"
 import Icon from 'react-native-vector-icons/AntDesign'
-import { Pressable } from "react-native"
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import { Pressable, View } from "react-native"
+import { useTheme } from "react-native-paper"
 
 
 const TabNavigatorOptions = (props: TabScreenProps) => {
     const routeName = props.route.name
+    const theme = useTheme()
     let result: BottomTabNavigationOptions = {}
     const navigation = useNavigation<NativeStackNavigationProp<MainNavParams>>()
 
@@ -17,10 +20,12 @@ const TabNavigatorOptions = (props: TabScreenProps) => {
                 headerShown: false,
                 tabBarHideOnKeyboard: true,
                 tabBarIcon: () => <Icon name="home" color={"black"} size={25} />,
-                tabBarLabel: "Home"
+                tabBarLabel: "Home",
+                tabBarInactiveTintColor:'black',
+                tabBarActiveTintColor:theme.colors.tertiary
             }
             break
-        case 'Message':
+        case 'MessageTab':
             result = {
                 headerShown: false,
                 tabBarLabel: "Message",
@@ -33,11 +38,25 @@ const TabNavigatorOptions = (props: TabScreenProps) => {
                 )
             }
             break
-        case 'Cart':
+        case 'CartTab':
             result = {
                 headerShown: false,
-                tabBarIcon: () => <Icon name="shoppingcart" color={"black"} size={25} />,
-                tabBarLabel: "Cart",
+                tabBarIcon: () => (
+                    <View style={{
+                        backgroundColor:theme.colors.background,
+                        width:80,
+                        height:80,
+                        borderRadius:80/2,
+                        justifyContent:'center',
+                        alignItems:'center',
+                        borderWidth:5,
+                        borderColor:theme.colors.primaryContainer,
+                        bottom:10
+                        }}>
+                        <Icon name="shoppingcart" color={"black"} size={35} />
+                    </View>
+                ),
+                tabBarLabel: "",
                 tabBarButton: (props) => (
                     <Pressable {...props} onPress={() => navigation.navigate("CartNav", { screen: "Cart" })}>
                         {props.children}
@@ -45,11 +64,28 @@ const TabNavigatorOptions = (props: TabScreenProps) => {
                 )
             }
             break
-        case 'Account':
+        case "WishlistTab":
+            result = {
+                headerShown: false,
+                tabBarIcon: () => <MaterialIcons name="favorite-border" color={"black"} size={25} />,
+                tabBarLabel: "Wishlist",
+                tabBarButton: (props) => (
+                    <Pressable {...props} onPress={() => navigation.navigate("WishlistNav", { screen: "Wishlist" })}>
+                        {props.children}
+                    </Pressable>
+                )
+            }
+            break
+        case 'AccountTab':
             result = {
                 headerShown: false,
                 tabBarIcon: () => <Icon name="user" color={"black"} size={25} />,
-                tabBarLabel: "Account"
+                tabBarLabel: "Profile",
+                tabBarButton: (props) => (
+                    <Pressable {...props} onPress={() => navigation.navigate("AccountNav", { screen: "Account" })}>
+                        {props.children}
+                    </Pressable>
+                )
             }
             break
         default:

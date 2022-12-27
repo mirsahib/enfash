@@ -16,15 +16,18 @@ type ProductNavParams={
 }
 type TabNavParams = {
     HomeTab:HomeNavParams,
-    Message:any,
-    Cart:any,
-    Account:any,
+    MessageTab:any,
+    CartTab:any,
+    AccountTab:any,
+    WishlistTab:any
 }
 type MainNavParams={
     HomeNav:any,
     ProductNav:any,
     MessageNav:any,
     CartNav:any,
+    AccountNav:any,
+    WishlistNav:any
 }
 
 
