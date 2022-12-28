@@ -6,7 +6,8 @@ import IconComponent, { directory } from '@components/IconComponent'
 type ProfileActionProps = {
   actionText: string,
   actionIcon: string,
-  iconDirectory: directory
+  iconDirectory: directory,
+  onPress:()=>void
 }
 
 const ProfileAction = (props: ProfileActionProps) => {

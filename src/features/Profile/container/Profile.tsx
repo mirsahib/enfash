@@ -24,13 +24,13 @@ const Profile = () => {
         </View>
         <View>
           {/* profile details */}
-          <ProfileAction actionText='Order History' actionIcon='clipboard' iconDirectory='Feather'/>
-          <ProfileAction actionText='Payment Method' actionIcon='creditcard' iconDirectory='AntDesign'/>
-          <ProfileAction actionText='My Address' actionIcon='location-outline' iconDirectory='Ionicons'/>
-          <ProfileAction actionText='Promocodes' actionIcon='gift-outline' iconDirectory='Ionicons'/>
-          <ProfileAction actionText='Track Order' actionIcon='truck' iconDirectory='Feather'/>
-          <ProfileAction actionText='FAQ' actionIcon='question-circle-o' iconDirectory='FontAwesome'/>
-          <ProfileAction actionText='LogOut' actionIcon='log-out' iconDirectory='Feather'/>
+          <ProfileAction onPress={()=>{}} actionText='Order History' actionIcon='clipboard' iconDirectory='Feather'/>
+          <ProfileAction onPress={()=>{}} actionText='Payment Method' actionIcon='creditcard' iconDirectory='AntDesign'/>
+          <ProfileAction onPress={()=>{}} actionText='My Address' actionIcon='location-outline' iconDirectory='Ionicons'/>
+          <ProfileAction onPress={()=>{}} actionText='Promocodes' actionIcon='gift-outline' iconDirectory='Ionicons'/>
+          <ProfileAction onPress={()=>{}} actionText='Track Order' actionIcon='truck' iconDirectory='Feather'/>
+          <ProfileAction onPress={()=>{}} actionText='FAQ' actionIcon='question-circle-o' iconDirectory='FontAwesome'/>
+          <ProfileAction onPress={()=>{}} actionText='LogOut' actionIcon='log-out' iconDirectory='Feather'/>
         </View>
       </View>
     </SafeAreaView>
