@@ -82,7 +82,7 @@ const TabNavigatorOptions = (props: TabScreenProps) => {
                 tabBarIcon: () => <Icon name="user" color={"black"} size={25} />,
                 tabBarLabel: "Profile",
                 tabBarButton: (props) => (
-                    <Pressable {...props} onPress={() => navigation.navigate("AccountNav", { screen: "Account" })}>
+                    <Pressable {...props} onPress={() => navigation.navigate("AccountNav", { screen: "Profile" })}>
                         {props.children}
                     </Pressable>
                 )

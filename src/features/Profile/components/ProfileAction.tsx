@@ -13,7 +13,7 @@ type ProfileActionProps = {
 const ProfileAction = (props: ProfileActionProps) => {
   const theme = useTheme()
   return (
-    <Pressable style={{ flexDirection: 'row', borderWidth: 1, borderColor: theme.colors.primaryContainer, marginVertical: '1%' }} android_ripple={{ color: theme.colors.secondary }} onPress={() => console.log('click')}>
+    <Pressable style={{ flexDirection: 'row', borderWidth: 1, borderColor: theme.colors.primaryContainer, marginVertical: '1%' }} android_ripple={{ color: theme.colors.secondary }} onPress={props.onPress}>
       <View style={{ flex: 1, alignItems: 'center', paddingVertical: 10, backgroundColor: theme.colors.primaryContainer }}>
         <IconComponent iconDirectory={props.iconDirectory} name={props.actionIcon} size={25} color={theme.colors.primary} />
       </View>

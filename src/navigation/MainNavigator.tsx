@@ -2,8 +2,8 @@ import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import TabNavigator from './TabNavigator'
 import ProductNavigator from './ProductNavigator'
+import ProfileNavigator from './ProfileNavigator'
 import MessageScreens from '@features/Messages'
-import ProfileScreens from '@features/Profile'
 import WishlistScreens from '@features/Wishlist'
 import Cart from '@container/Cart'
 import {MainNavParams} from './utils/NavigationTypes'
@@ -17,7 +17,7 @@ const MainNavigator = () => {
         <Stack.Screen name="ProductNav" options={{headerShown:false}} component={ProductNavigator}/>
         <Stack.Screen name="MessageNav" options={{headerTitle:"Message"}} component={MessageScreens.Message}/>
         <Stack.Screen name="CartNav" options={{headerTitle:"Shopping bag"}} component ={Cart}/>
-        <Stack.Screen name="AccountNav" options={{headerTitle:"Profile"}} component ={ProfileScreens.Profile}/>
+        <Stack.Screen name="AccountNav" options={{headerShown:false}} component ={ProfileNavigator}/>
         <Stack.Screen name="WishlistNav" options={{headerTitle:"Wishlist"}} component ={WishlistScreens.Wishlist}/>
     </Stack.Navigator>
   )
