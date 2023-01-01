@@ -18,7 +18,7 @@ const Profile = () => {
         paddingTop: '5%',
         paddingHorizontal: '5%'
       }}>
-        <View style={{ alignItems: 'center' }}>
+        <View style={{ alignItems: 'center' ,marginBottom:'5%'}}>
           <Avatar.Image size={120} source={require("@assets/account.jpg")} />
           <Text variant='titleSmall'>William Justin</Text>
           <Text style={{ color: theme.colors.secondary }}>william@mail.com</Text>

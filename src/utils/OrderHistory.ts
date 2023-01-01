@@ -1,7 +1,19 @@
-const OrderHistory = [
+type OrderStatus = "Delivered" | "Cancelled" | "In transit"
+type OrderCardProps = {
+    orderId: string
+    orderStatus: OrderStatus,
+    orderDate: string,
+    products: {
+        title: string,
+        quantity: number,
+        price: number
+    }[]
+    total: number
+}
+const OrderHistory:OrderCardProps[] = [
     {
         "orderId": "1",
-        "orderStatus": "delivered",
+        "orderStatus": "Delivered",
         "orderDate": "2022-03-15",
         "products": [
             {
@@ -18,7 +30,7 @@ const OrderHistory = [
     },
     {
         "orderId": "2",
-        "orderStatus": "cancelled",
+        "orderStatus": "Cancelled",
         "orderDate": "2022-01-11",
         "products": [
             {
@@ -44,7 +56,7 @@ const OrderHistory = [
     },
     {
         "orderId": "4",
-        "orderStatus": "delivered",
+        "orderStatus": "Delivered",
         "orderDate": "2021-12-03",
         "products": [
             {
@@ -75,7 +87,7 @@ const OrderHistory = [
     },
     {
         "orderId": "6",
-        "orderStatus": "cancelled",
+        "orderStatus": "Cancelled",
         "orderDate": "2022-09-12",
         "products": [
             {
@@ -88,7 +100,7 @@ const OrderHistory = [
     },
     {
         "orderId": "7",
-        "orderStatus": "delivered",
+        "orderStatus": "Delivered",
         "orderDate": "2023-01-01",
         "products": [
             {
