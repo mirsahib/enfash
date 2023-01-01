@@ -1,22 +1,20 @@
 import {  View } from 'react-native'
 import React from 'react'
-import { SafeAreaView } from 'react-native-safe-area-context'
 import { Avatar, useTheme,Text } from 'react-native-paper'
 import ProfileAction from '../components/ProfileAction'
 import { useNavigation } from '@react-navigation/native'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { MainNavParams } from '@navigation/utils/NavigationTypes'
+import Layout from '../wrapper/Layout'
 
 const Profile = () => {
   const theme = useTheme()
   const navigation = useNavigation<NativeStackNavigationProp<MainNavParams>>()
   return (
-    <SafeAreaView style={{ flex: 1, justifyContent: 'center', backgroundColor: theme.colors.primaryContainer }}>
       <View style={{
         flex: 1,
         backgroundColor: theme.colors.background,
-        marginHorizontal: '5%',
-        marginVertical: '10%',
+        margin: '5%',
         paddingTop: '5%',
         paddingHorizontal: '5%'
       }}>
@@ -36,8 +34,7 @@ const Profile = () => {
           <ProfileAction onPress={()=>console.log('logout')} actionText='LogOut' actionIcon='log-out' iconDirectory='Feather'/>
         </View>
       </View>
-    </SafeAreaView>
   )
 }
 
-export default Profile
+export default Layout(Profile)

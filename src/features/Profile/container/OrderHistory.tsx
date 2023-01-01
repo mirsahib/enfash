@@ -1,13 +1,18 @@
-import { View } from 'react-native'
+import { FlatList, View } from 'react-native'
 import React from 'react'
-import { Text } from 'react-native-paper'
-
+import data from '@utils/OrderHistory'
+import Layout from '../wrapper/Layout'
+import OrderCard from '../components/OrderCard'
 const OrderHistory = () => {
   return (
-    <View>
-      <Text>OrderHistory</Text>
+    <View style={{flex:1,paddingHorizontal:'5%',paddingTop:'5%'}}>
+      <FlatList
+        data={data}
+        keyExtractor={item=>item.orderId}
+        renderItem={item=>(<OrderCard data={item.item}/>)}
+      />
     </View>
   )
 }
 
-export default OrderHistory
+export default Layout(OrderHistory)
