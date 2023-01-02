@@ -9,7 +9,7 @@ const OrderHistory = () => {
       <FlatList
         data={data}
         keyExtractor={item=>item.orderId}
-        renderItem={item=>(<OrderCard data={item.item}/>)}
+        renderItem={item=>(<OrderCard {...item.item}/>)}
       />
     </View>
   )

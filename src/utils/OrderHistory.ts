@@ -1,30 +1,30 @@
+import { ProductType } from "./containerTypes"
+
 type OrderStatus = "Delivered" | "Cancelled" | "In transit"
 type OrderCardProps = {
     orderId: string
     orderStatus: OrderStatus,
     orderDate: string,
-    products: {
-        title: string,
-        quantity: number,
-        price: number
-    }[]
+    products: ProductType[]
     total: number
 }
-const OrderHistory:OrderCardProps[] = [
+const OrderHistory: OrderCardProps[] = [
     {
         "orderId": "1",
         "orderStatus": "Delivered",
         "orderDate": "2022-03-15",
         "products": [
             {
-                "title": "Women's Shirt",
-                "quantity": 7,
-                "price": 324
-            },
-            {
-                "title": "Men's Pants",
-                "quantity": 3,
-                "price": 678
+                "id": "1",
+                "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+                "price": 109.95,
+                "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
+                "category": "men's clothing",
+                "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+                "rating": {
+                    "rate": 3.9,
+                    "count": 120
+                }
             }],
         "total": 1782
     },
@@ -34,10 +34,17 @@ const OrderHistory:OrderCardProps[] = [
         "orderDate": "2022-01-11",
         "products": [
             {
-                "title": "Women's Dress",
-                "quantity": 2,
-                "price": 587
-            }
+                "id": "1",
+                "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+                "price": 109.95,
+                "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
+                "category": "men's clothing",
+                "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+                "rating": {
+                    "rate": 3.9,
+                    "count": 120
+                }
+            },
         ],
         "total": 1174
     },
@@ -47,10 +54,17 @@ const OrderHistory:OrderCardProps[] = [
         "orderDate": "2022-07-25",
         "products": [
             {
-                "title": "Men's Jacket",
-                "quantity": 1,
-                "price": 921
-            }
+                "id": "1",
+                "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+                "price": 109.95,
+                "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
+                "category": "men's clothing",
+                "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+                "rating": {
+                    "rate": 3.9,
+                    "count": 120
+                }
+            },
         ],
         "total": 921
     },
@@ -60,15 +74,17 @@ const OrderHistory:OrderCardProps[] = [
         "orderDate": "2021-12-03",
         "products": [
             {
-                "title": "Women's Shoes",
-                "quantity": 5,
-                "price": 122
-            },
-            {
-                "title": "Men's Hat",
-                "quantity": 2,
-                "price": 34
-            }
+                "id": "1",
+                "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+                "price": 109.95,
+                "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
+                "category": "men's clothing",
+                "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+                "rating": {
+                  "rate": 3.9,
+                  "count": 120
+                }
+              }
         ],
         "total": 724
     },
@@ -78,10 +94,17 @@ const OrderHistory:OrderCardProps[] = [
         "orderDate": "2022-05-19",
         "products": [
             {
-                "title": "Women's Bag",
-                "quantity": 3,
-                "price": 345
-            }
+                "id": "1",
+                "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+                "price": 109.95,
+                "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
+                "category": "men's clothing",
+                "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+                "rating": {
+                  "rate": 3.9,
+                  "count": 120
+                }
+              },
         ],
         "total": 1035
     },
@@ -91,10 +114,17 @@ const OrderHistory:OrderCardProps[] = [
         "orderDate": "2022-09-12",
         "products": [
             {
-                "title": "Men's T-Shirt",
-                "quantity": 6,
-                "price": 187
-            }
+                "id": "1",
+                "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+                "price": 109.95,
+                "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
+                "category": "men's clothing",
+                "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+                "rating": {
+                  "rate": 3.9,
+                  "count": 120
+                }
+              },
         ],
         "total": 1122
     },
@@ -104,15 +134,17 @@ const OrderHistory:OrderCardProps[] = [
         "orderDate": "2023-01-01",
         "products": [
             {
-                "title": "Women's Sunglasses",
-                "quantity": 3,
-                "price": 199
-            },
-            {
-                "title": "Men's Belt",
-                "quantity": 1,
-                "price": 121
-            }
+                "id": "1",
+                "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+                "price": 109.95,
+                "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
+                "category": "men's clothing",
+                "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+                "rating": {
+                  "rate": 3.9,
+                  "count": 120
+                }
+              },
         ],
         "total": 637
     },
@@ -122,12 +154,19 @@ const OrderHistory:OrderCardProps[] = [
         "orderDate": "2022-02-16",
         "products": [
             {
-                "title": "Women's Jacket",
-                "quantity": 4,
-                "price": 754
-            }
+                "id": "1",
+                "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+                "price": 109.95,
+                "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
+                "category": "men's clothing",
+                "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+                "rating": {
+                  "rate": 3.9,
+                  "count": 120
+                }
+              },
         ],
-        total: 637
+        "total": 637
     }
 ]
 
