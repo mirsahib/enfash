@@ -16,7 +16,8 @@ type ProductNavParams = {
 }
 type ProfileNavParams = {
     Profile:any
-    OrderHistory:any
+    OrderHistory:any,
+    OrderDetails:any,
     Payment:any
     Address:any
     PromoCode:any

@@ -1,6 +1,9 @@
 import { View } from 'react-native'
 import React from 'react'
 import { Text, Button, useTheme } from 'react-native-paper'
+import { useNavigation } from '@react-navigation/native'
+import { MainNavParams } from '@navigation/utils/NavigationTypes'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 
 type OrderStatus = "Delivered" | "Cancelled" | "In transit"
 type OrderCardProps = {
@@ -19,6 +22,7 @@ type OrderCardProps = {
 
 const OrderCard = (props: OrderCardProps) => {
     const theme = useTheme()
+    const navigation = useNavigation<NativeStackNavigationProp<MainNavParams>>()
 
     const renderOrderStatus = () => {
         let text = null
@@ -50,7 +54,7 @@ const OrderCard = (props: OrderCardProps) => {
             </View>
             <View style={{ backgroundColor: theme.colors.primaryContainer, padding: 1, marginVertical: '5%' }}></View>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: '1%' }}>
-                <Button mode='outlined'>Details</Button>
+                <Button mode='outlined' onPress={()=>navigation.navigate("AccountNav",{screen:'OrderDetails'})} >Details</Button>
                 <Button mode='outlined' >Reorder</Button>
             </View>
         </View>

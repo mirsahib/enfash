@@ -11,12 +11,12 @@ import { useTheme } from "react-native-paper"
 const TabNavigatorOptions = (props: TabScreenProps) => {
     const routeName = props.route.name
     const theme = useTheme()
-    let result: BottomTabNavigationOptions = {}
+    let options: BottomTabNavigationOptions = {}
     const navigation = useNavigation<NativeStackNavigationProp<MainNavParams>>()
 
     switch (routeName) {
         case 'HomeTab':
-            result = {
+            options = {
                 headerShown: false,
                 tabBarHideOnKeyboard: true,
                 tabBarIcon: () => <Icon name="home" color={"black"} size={25} />,
@@ -26,7 +26,7 @@ const TabNavigatorOptions = (props: TabScreenProps) => {
             }
             break
         case 'MessageTab':
-            result = {
+            options = {
                 headerShown: false,
                 tabBarLabel: "Message",
                 tabBarShowLabel: true,
@@ -39,7 +39,7 @@ const TabNavigatorOptions = (props: TabScreenProps) => {
             }
             break
         case 'CartTab':
-            result = {
+            options = {
                 headerShown: false,
                 tabBarIcon: () => (
                     <View style={{
@@ -65,7 +65,7 @@ const TabNavigatorOptions = (props: TabScreenProps) => {
             }
             break
         case "WishlistTab":
-            result = {
+            options = {
                 headerShown: false,
                 tabBarIcon: () => <MaterialIcons name="favorite-border" color={"black"} size={25} />,
                 tabBarLabel: "Wishlist",
@@ -77,7 +77,7 @@ const TabNavigatorOptions = (props: TabScreenProps) => {
             }
             break
         case 'AccountTab':
-            result = {
+            options = {
                 headerShown: false,
                 tabBarIcon: () => <Icon name="user" color={"black"} size={25} />,
                 tabBarLabel: "Profile",
@@ -91,6 +91,6 @@ const TabNavigatorOptions = (props: TabScreenProps) => {
         default:
             throw new Error("Route Name is not supported")
     }
-    return result
+    return options
 }
 export default TabNavigatorOptions

@@ -11,6 +11,7 @@ const ProfileNavigator = () => {
     <Stack.Navigator>
         <Stack.Screen name="Profile" options={ProfileNavigatorOptions} component={ProfileScreens.Profile}/>
         <Stack.Screen name="OrderHistory" options={ProfileNavigatorOptions} component={ProfileScreens.OrderHistory}/>
+        <Stack.Screen name="OrderDetails" options={ProfileNavigatorOptions} component={ProfileScreens.OrderDetails}/>
         <Stack.Screen name="Payment" options={ProfileNavigatorOptions} component={ProfileScreens.PaymentMethod}/>
         <Stack.Screen name="Address" options={ProfileNavigatorOptions} component={ProfileScreens.Address}/>
         <Stack.Screen name="PromoCode" options={ProfileNavigatorOptions} component={ProfileScreens.PromoCodes}/>

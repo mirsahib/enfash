@@ -1,9 +1,5 @@
-import { View, Text } from 'react-native'
-import React from 'react'
 import { ProfileScreenProps } from './NavigationTypes'
 import { NativeStackNavigationOptions } from '@react-navigation/native-stack'
-
-
 
 const ProfileNavigatorOptions = (props: ProfileScreenProps) => {
     const routeName = props.route.name
@@ -11,38 +7,51 @@ const ProfileNavigatorOptions = (props: ProfileScreenProps) => {
 
     switch (routeName) {
         case "Profile":
-            options={
-                headerTitle:"Profile"
+            options = {
+                animation: "slide_from_right",
+                headerTitle: "Profile"
             }
             break
         case "OrderHistory":
-            options={
-                headerTitle:"Order History"
+            options = {
+                animation: "slide_from_right",
+                headerTitle: "Order History"
             }
             break
         case "Payment":
-            options={
-                headerTitle:"Payment"
+            options = {
+                animation: "slide_from_right",
+                headerTitle: "Payment"
             }
             break
         case "Address":
-            options={
-                headerTitle:"Address"
+            options = {
+                animation: "slide_from_right",
+                headerTitle: "Address"
             }
             break
         case "PromoCode":
-            options={
-                headerTitle:"Promo Code"
+            options = {
+                animation: "slide_from_right",
+                headerTitle: "Promo Code"
             }
             break
         case "TrackOrder":
-            options={
-                headerTitle:"Track Order"
+            options = {
+                animation: "slide_from_right",
+                headerTitle: "Track Order"
             }
             break
         case "Faq":
-            options={
-                headerTitle:"FAQ"
+            options = {
+                animation: "slide_from_right",
+                headerTitle: "FAQ"
+            }
+            break
+        case "OrderDetails":
+            options = {
+                animation: "slide_from_right",
+                headerTitle: "Order Details"
             }
             break
         default:

@@ -5,6 +5,7 @@ import Address from "./container/Address";
 import PromoCodes from "./container/PromoCodes";
 import TrackOrder from "./container/TrackOrder";
 import Faq from "./container/Faq";
+import OrderDetails from "./container/OrderDetails";
 
 
 const screen={
@@ -15,6 +16,7 @@ const screen={
     PromoCodes:PromoCodes,
     TrackOrder:TrackOrder,
     Faq:Faq,
+    OrderDetails:OrderDetails
 }
 
 export  default screen
