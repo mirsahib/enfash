@@ -23,9 +23,16 @@ type PromptProps={
     promptAction:()=>void
 }
 
+type TrackOrderStatusProps={
+    title:string,
+    message:string,
+    icon:string
+}
+
 export type {
     OrderStatusTypes,
     OrderCardProps,
     OrderDetailsCardProps,
-    PromptProps
+    PromptProps,
+    TrackOrderStatusProps
 }
