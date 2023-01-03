@@ -7,7 +7,6 @@ import { TrackOrderStatusProps } from '../types'
 const TrackOrderStatus = (props:TrackOrderStatusProps) => {
     const theme = useTheme()
     const {title,message,icon} = props
-    console.log(props)
     return (
         <View style={{ flexDirection: 'row' }}>
             <IconComponent iconDirectory='Ionicons' name={icon} color={theme.colors.primary} size={35} />
