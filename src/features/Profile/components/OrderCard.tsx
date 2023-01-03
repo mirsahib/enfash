@@ -4,16 +4,9 @@ import { Text, Button, useTheme } from 'react-native-paper'
 import { useNavigation } from '@react-navigation/native'
 import { MainNavParams } from '@navigation/utils/NavigationTypes'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
-import { ProductType } from '@utils/containerTypes'
+import { OrderCardProps } from '../types'
 
-type OrderStatus = "Delivered" | "Cancelled" | "In transit"
-type OrderCardProps = {
-    orderId: string
-    orderStatus: OrderStatus,
-    orderDate: string,
-    products: ProductType[]
-    total: number
-}
+
 
 const OrderCard = (props: OrderCardProps) => {
     const theme = useTheme()
@@ -36,6 +29,19 @@ const OrderCard = (props: OrderCardProps) => {
         }
         return text
     }
+    const navigateToDetails = () => {
+        navigation.navigate("AccountNav", {
+            screen: 'OrderDetails',
+            params: { 
+                orderId:props.orderId,
+                orderStatus:props.orderStatus,
+                total:props.total,
+                orderDate:props.orderDate,
+                productList: props.productList,
+                address:props.address
+            }
+        })
+    }
 
     return (
         <View style={{ backgroundColor: 'white', padding: '5%', marginBottom: '5%', borderRadius: 10 }}>
@@ -44,12 +50,12 @@ const OrderCard = (props: OrderCardProps) => {
                 {renderOrderStatus()}
             </View>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                <Text>{props.orderDate} at 1:45 pm</Text>
+                <Text>{props.orderDate}</Text>
                 <Text variant='titleSmall'>$ {props.total}</Text>
             </View>
             <View style={{ backgroundColor: theme.colors.primaryContainer, padding: 1, marginVertical: '5%' }}></View>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: '1%' }}>
-                <Button mode='outlined' onPress={() => navigation.navigate("AccountNav", { screen: 'OrderDetails' })} >Details</Button>
+                <Button mode='outlined' onPress={() => navigateToDetails()} >Details</Button>
                 <Button mode='outlined' >Reorder</Button>
             </View>
         </View>

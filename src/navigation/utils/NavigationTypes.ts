@@ -2,6 +2,7 @@ import { BottomTabScreenProps } from "@react-navigation/bottom-tabs"
 import { NavigatorScreenParams, RouteProp } from "@react-navigation/native"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
 import { ProductType } from "@utils/containerTypes"
+import { OrderStatusTypes } from "@features/Profile/types"
 type AuthNavParams = {
     SignIn: any,
     Login: any
@@ -17,7 +18,17 @@ type ProductNavParams = {
 type ProfileNavParams = {
     Profile:any
     OrderHistory:any,
-    OrderDetails:any,
+    OrderDetails:{
+        orderId:string
+        orderStatus:OrderStatusTypes,
+        total:number,
+        orderDate:string
+        productList:{
+            product:ProductType,
+            quantity:number
+        }[],
+        address:string
+    },
     Payment:any
     Address:any
     PromoCode:any
@@ -45,6 +56,7 @@ type AuthRouteProps = RouteProp<AuthNavParams>
 type HomeRouteProps = RouteProp<HomeNavParams>
 type ProductsRouteProps = RouteProp<ProductNavParams, 'Product'>
 type TabRouteProps = RouteProp<TabNavParams>
+type OrderDetailsRouteProps = RouteProp<ProfileNavParams,'OrderDetails'>
 
 //route props
 type TabScreenProps = BottomTabScreenProps<TabNavParams>
@@ -63,6 +75,7 @@ export type {
     HomeRouteProps,
     ProductsRouteProps,
     TabRouteProps,
+    OrderDetailsRouteProps,
     TabScreenProps,
     ProductScreenProps,
     MainScreenProps,
