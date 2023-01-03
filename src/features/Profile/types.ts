@@ -15,8 +15,17 @@ type OrderDetailsCardProps = {
     product:ProductType,
     quantity:number
 }
+
+type PromptProps={
+    title:string,
+    message:string
+    visibility:boolean,
+    promptAction:()=>void
+}
+
 export type {
     OrderStatusTypes,
     OrderCardProps,
-    OrderDetailsCardProps
+    OrderDetailsCardProps,
+    PromptProps
 }
