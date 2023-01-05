@@ -12,7 +12,8 @@ module.exports = {
         "@navigation": "./src/navigation",
         "@store": "./src/store",
         "@styles": "./src/styles",
-        "@utils": "./src/utils"
+        "@utils": "./src/utils",
+        "@hoc":"./src/hoc",
 
       }
     }]
