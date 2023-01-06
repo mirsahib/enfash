@@ -21,6 +21,7 @@ const Faq = () => {
             borderColor: theme.colors.primaryContainer,
             marginTop: 10,
           }}
+          titleStyle={{fontWeight: 'bold',fontSize:14 }}
           title="Q: How do I place an order on the app?"
           titleNumberOfLines={2}
           id="1">
@@ -39,6 +40,7 @@ const Faq = () => {
             borderColor: theme.colors.primaryContainer,
             marginTop: 10,
           }}
+          titleStyle={{fontWeight: 'bold',fontSize:14}}
           title="Q: How do I track my order?"
           id="2">
           <List.Item
@@ -56,6 +58,7 @@ const Faq = () => {
             borderColor: theme.colors.primaryContainer,
             marginTop: 10,
           }}
+          titleStyle={{fontWeight: 'bold',fontSize:14}}
           title="Q: How do I return an item?"
           id="3">
           <List.Item
@@ -73,6 +76,7 @@ const Faq = () => {
             borderColor: theme.colors.primaryContainer,
             marginTop: 10,
           }}
+          titleStyle={{fontWeight: 'bold',fontSize:14}}
           title="Q: How do I track my order?"
           id="4">
           <List.Item
@@ -90,6 +94,7 @@ const Faq = () => {
             borderColor: theme.colors.primaryContainer,
             marginTop: 10,
           }}
+          titleStyle={{fontWeight: 'bold',fontSize:14}}
           title="Q: How do I contact customer support?"
           titleNumberOfLines={2}
           id="5">
