@@ -1,12 +1,11 @@
 import React from 'react'
-import styles from '../styles/main'
 import { Text,  } from 'react-native-paper'
-import { SafeAreaView } from 'react-native-safe-area-context';
 import {  View } from 'react-native';
 import CatagoryCard from '../components/CatagoryCard';
 import { FlatList } from 'react-native-gesture-handler'
 import ProductComponent from '../components/ProductComponent';
 import FlatListHeader from '../components/FlatListHeader';
+import Layout from '@hoc/Layout';
 
 const catagories = [
     {
@@ -33,7 +32,6 @@ const catagories = [
 const Home = () => {
 
     return (
-        <SafeAreaView style={styles.container}>
             <View style={{ flex: 1, paddingHorizontal: '5%'  }}>
                 <FlatList
                     ListHeaderComponent={
@@ -59,8 +57,7 @@ const Home = () => {
                     renderItem={(item) => <CatagoryCard data={item.item} />}
                 />
             </View>
-        </SafeAreaView>
     )
 }
 
-export default Home
+export default Layout(Home)

@@ -1,12 +1,11 @@
 import Home from "./container/Home";
 import Cart from "@container/Cart";
-import Profile from "./container/Profile";
-
+import Search from "./container/Search";
 
 const screen = {
     Home:Home,
     Cart:Cart,
-    Profile:Profile,
+    Search:Search
 }
 
 export default screen

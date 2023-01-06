@@ -44,6 +44,7 @@ type TabNavParams = {
 }
 type MainNavParams = {
     HomeNav: any,
+    Search:any,
     ProductNav: any,
     MessageNav: any,
     CartNav: any,

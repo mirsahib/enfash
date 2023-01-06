@@ -1,24 +1,36 @@
-import { View } from 'react-native'
-import React from 'react'
-import { Searchbar, Text  } from 'react-native-paper'
+import {View} from 'react-native';
+import React from 'react';
+import {Searchbar, Text, useTheme} from 'react-native-paper';
+import {useState} from 'react';
+import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {MainNavParams} from '@navigation/utils/NavigationTypes';
 
 const FlatListHeader = () => {
-    const [searchQuery, setSearchQuery] = React.useState('');
-    const onChangeSearch = (query: string) => setSearchQuery(query);
+  const [searchQuery, setSearchQuery] = useState('');
+  const theme = useTheme();
+  const onChangeSearch = (query: string) => setSearchQuery(query);
+  const navigation = useNavigation<NativeStackNavigationProp<MainNavParams>>();
+  return (
+    <View style={{marginVertical: '5%'}}>
+      <Text variant="titleMedium">
+        Find the best deals,delivered to your door
+      </Text>
+      <Searchbar
+        placeholder="Search for products..."
+        placeholderTextColor={theme.colors.secondary}
+        onChangeText={onChangeSearch}
+        value={searchQuery}
+        style={{
+          backgroundColor: 'white',
+          borderRadius: 10,
+          marginVertical: '2%',
+        }}
+        elevation={0}
+        onFocus={() => navigation.navigate('Search')}
+      />
+    </View>
+  );
+};
 
-    return (
-        <View style={{marginVertical:'5%'}}>
-            <Text variant='titleMedium' >Find the best deals,delivered to your door</Text>
-            <Searchbar
-                placeholder="Search"
-                onChangeText={onChangeSearch}
-                value={searchQuery}
-                style={{ backgroundColor: 'white', borderRadius: 10,marginVertical:'2%' }}
-                elevation={0}
-                
-            />
-        </View>
-    )
-}
-
-export default FlatListHeader
+export default FlatListHeader;
