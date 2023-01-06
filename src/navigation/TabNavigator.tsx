@@ -1,8 +1,7 @@
 import React from 'react'
-import MessageScreens from '@features/Messages'
+import HomeScreens from '@features/Home'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { TabNavParams } from './utils/NavigationTypes'
-import HomeNavigator from './HomeNavigator'
 import TabNavigatorOptions from './utils/TabNavigatorOptions'
 import { View } from 'react-native'
 
@@ -12,7 +11,7 @@ const TabNavigator = () => {
 
     return (
         <Tab.Navigator>
-            <Tab.Screen name='HomeTab' component={HomeNavigator} options={TabNavigatorOptions} />
+            <Tab.Screen name='HomeTab' component={HomeScreens.Home} options={TabNavigatorOptions} />
             <Tab.Screen name='MessageTab' component={View} 
                 options={TabNavigatorOptions} />
             <Tab.Screen name='CartTab' component={View}

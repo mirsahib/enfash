@@ -1,13 +1,12 @@
 import { createDrawerNavigator } from "@react-navigation/drawer"
-
 import Header from '@features/Home/components/Header'
 import HeaderRight from '@features/Home/components/HeaderRight'
-import HomeScreens from '@features/Home'
+import TabNavigator from "./TabNavigator"
 
 
 const Drawer = createDrawerNavigator()
 
-const HomeNavigator =()=>{
+const DrawerNavigator =()=>{
     return(
         <Drawer.Navigator>
             <Drawer.Screen name='Home' options={{
@@ -20,8 +19,8 @@ const HomeNavigator =()=>{
                 headerRightContainerStyle:{
                     paddingHorizontal:'5%'
                 },
-            }}  component={HomeScreens.Home}/>
+            }}  component={TabNavigator}/>
         </Drawer.Navigator>
     )
 }
-export default HomeNavigator
+export default DrawerNavigator
