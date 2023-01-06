@@ -3,6 +3,7 @@ import React from 'react';
 import {Searchbar, Text, useTheme} from 'react-native-paper';
 import {useState} from 'react';
 import ProductData from '@features/Home/utils/data'
+import Layout from '@hoc/Layout';
 
 
 const Search = () => {
@@ -35,4 +36,4 @@ const Search = () => {
   );
 };
 
-export default Search;
+export default Layout(Search);

@@ -45,6 +45,9 @@ type TabNavParams = {
 type MainNavParams = {
     HomeNav: any,
     Search:any,
+    SearchByCatagory:{
+        headerTitle: string
+    }
     ProductNav: any,
     MessageNav: any,
     CartNav: any,
@@ -56,6 +59,7 @@ type MainNavParams = {
 type AuthRouteProps = RouteProp<AuthNavParams>
 type HomeRouteProps = RouteProp<HomeNavParams>
 type ProductsRouteProps = RouteProp<ProductNavParams, 'Product'>
+type SearchByCatagoryRouteProps = RouteProp<MainNavParams, 'SearchByCatagory'>
 type TabRouteProps = RouteProp<TabNavParams>
 type OrderDetailsRouteProps = RouteProp<ProfileNavParams,'OrderDetails'>
 
@@ -77,6 +81,7 @@ export type {
     ProductsRouteProps,
     TabRouteProps,
     OrderDetailsRouteProps,
+    SearchByCatagoryRouteProps,
     TabScreenProps,
     ProductScreenProps,
     MainScreenProps,

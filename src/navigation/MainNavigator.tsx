@@ -17,6 +17,7 @@ const MainNavigator = () => {
     <Stack.Navigator>
         <Stack.Screen name="HomeNav" options={{headerShown:false}} component={HomeNavigator}/>
         <Stack.Screen name="Search" options={{headerTitle:""}} component={HomeScreens.Search}/>
+        <Stack.Screen name="SearchByCatagory" options={{headerTitle:"Catagory"}} component={HomeScreens.SearchByCatagory}/>
         <Stack.Screen name="ProductNav" options={{headerShown:false}} component={ProductNavigator}/>
         <Stack.Screen name="MessageNav" options={{headerTitle:"Message"}} component={MessageScreens.Message}/>
         <Stack.Screen name="CartNav" options={{headerTitle:"Shopping bag"}} component ={Cart}/>

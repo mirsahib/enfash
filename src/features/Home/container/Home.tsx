@@ -6,28 +6,7 @@ import { FlatList } from 'react-native-gesture-handler'
 import ProductComponent from '../components/ProductComponent';
 import FlatListHeader from '../components/FlatListHeader';
 import Layout from '@hoc/Layout';
-
-const catagories = [
-    {
-        id: '1',
-        name: "men's clothing",
-        icon: require("@assets/icons/tshirt.png"),
-    },
-    {
-        id: '2',
-        name: "women's clothing",
-        icon: require("@assets/icons/dress.png"),
-    }, {
-        id: '3',
-        name: 'electronics',
-        icon: require("@assets/icons/responsive.png"),
-    }, {
-        id: '4',
-        name: 'jewelry',
-        icon: require("@assets/icons/jewelry.png"),
-    }
-
-]
+import CatagoryData from '@utils/mock/CatagoryData';
 
 const Home = () => {
 
@@ -50,11 +29,11 @@ const Home = () => {
                     ListFooterComponentStyle={{
                         marginVertical:'5%'
                     }}
-                    data={catagories}
+                    data={CatagoryData}
                     numColumns={2}
                     columnWrapperStyle={{ flex: 1, justifyContent: 'space-around', margin: '2%' }}
                     keyExtractor={(item) => item.id}
-                    renderItem={(item) => <CatagoryCard data={item.item} />}
+                    renderItem={(item) => <CatagoryCard {...item.item} />}
                 />
             </View>
     )
