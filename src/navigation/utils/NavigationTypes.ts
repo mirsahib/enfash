@@ -52,7 +52,6 @@ type MainNavParams = {
     MessageNav: any,
     CartNav: any,
     AccountNav: NavigatorScreenParams<ProfileNavParams>,
-    WishlistNav: any
 }
 
 //screen props

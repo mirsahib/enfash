@@ -8,8 +8,10 @@ const Drawer = createDrawerNavigator()
 
 const DrawerNavigator =()=>{
     return(
-        <Drawer.Navigator>
-            <Drawer.Screen name='Home' options={{
+        <Drawer.Navigator initialRouteName="TabNav">
+            <Drawer.Screen name='TabNav' options={{
+                drawerLabel:"Home",
+                
                 headerTitle:()=><Header/>,
                 headerTitleAlign:'center',
                 headerStyle:{

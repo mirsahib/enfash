@@ -41,27 +41,22 @@ const TabNavigatorOptions = (props: TabScreenProps) => {
         case 'CartTab':
             options = {
                 headerShown: false,
-                tabBarIcon: () => (
+                tabBarIcon: ({focused,color,size}) => (
                     <View style={{
-                        backgroundColor:theme.colors.background,
+                        backgroundColor:focused?theme.colors.primaryContainer:theme.colors.background,
                         width:80,
                         height:80,
                         borderRadius:80/2,
                         justifyContent:'center',
                         alignItems:'center',
                         borderWidth:5,
-                        borderColor:theme.colors.primaryContainer,
+                        borderColor:'rgba(158, 150, 150, .5)',
                         bottom:10
                         }}>
                         <Icon name="shoppingcart" color={"black"} size={35} />
                     </View>
                 ),
                 tabBarLabel: "",
-                tabBarButton: (props) => (
-                    <Pressable {...props} onPress={() => navigation.navigate("CartNav", { screen: "Cart" })}>
-                        {props.children}
-                    </Pressable>
-                )
             }
             break
         case "WishlistTab":
@@ -69,11 +64,8 @@ const TabNavigatorOptions = (props: TabScreenProps) => {
                 headerShown: false,
                 tabBarIcon: () => <MaterialIcons name="favorite-border" color={"black"} size={25} />,
                 tabBarLabel: "Wishlist",
-                tabBarButton: (props) => (
-                    <Pressable {...props} onPress={() => navigation.navigate("WishlistNav", { screen: "Wishlist" })}>
-                        {props.children}
-                    </Pressable>
-                )
+                tabBarInactiveTintColor:'black',
+                tabBarActiveTintColor:theme.colors.tertiary
             }
             break
         case 'AccountTab':
