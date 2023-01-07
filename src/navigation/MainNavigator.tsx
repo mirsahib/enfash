@@ -4,8 +4,6 @@ import ProductNavigator from './ProductNavigator'
 import ProfileNavigator from './ProfileNavigator'
 import HomeScreens from '@features/Home'
 import MessageScreens from '@features/Messages'
-import WishlistScreens from '@features/Wishlist'
-import Cart from '@container/Cart'
 import {MainNavParams} from './utils/NavigationTypes'
 import HomeNavigator from './DrawerNavigator'
 
@@ -19,7 +17,6 @@ const MainNavigator = () => {
         <Stack.Screen name="SearchByCatagory" options={{headerTitle:"Catagory"}} component={HomeScreens.SearchByCatagory}/>
         <Stack.Screen name="ProductNav" options={{headerShown:false}} component={ProductNavigator}/>
         <Stack.Screen name="MessageNav" options={{headerTitle:"Message"}} component={MessageScreens.Message}/>
-        <Stack.Screen name="CartNav" options={{headerTitle:"Shopping bag"}} component ={Cart}/>
         <Stack.Screen name="AccountNav" options={{headerShown:false}} component ={ProfileNavigator}/>
     </Stack.Navigator>
   )

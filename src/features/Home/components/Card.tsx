@@ -1,12 +1,13 @@
 import React from 'react';
-import {useTheme, Text, IconButton} from 'react-native-paper';
+import {useTheme, Text} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {Card} from 'react-native-paper';
 import {MainNavParams} from '@navigation/utils/NavigationTypes';
 import {CardProps} from '../types';
-import {Image, Pressable} from 'react-native';
+import {Image, Pressable, View} from 'react-native';
 import IconComponent from '@components/IconComponent';
+import IconButton from './IconButton';
 
 const CardComponent = (props: CardProps) => {
   const theme = useTheme();
@@ -18,44 +19,58 @@ const CardComponent = (props: CardProps) => {
     });
   };
   return (
-    <Card
+    <Pressable
       onPress={() => handleNav()}
-      style={{width: 160, backgroundColor: theme.colors.background}}>
+      style={{backgroundColor: theme.colors.background,width: 160,padding:'5%',borderRadius:10}}>
       <Image
         source={{uri: props.data.image}}
         style={{flex: 1, height: 120, margin: '5%'}}
         resizeMode="contain"
       />
-      <Pressable
-        onPress={() => console.log('favorite')}
-        style={{
+      <IconButton
+        containerStyle={{
           backgroundColor: theme.colors.primaryContainer,
           position: 'absolute',
           top: 10,
           left: 120,
-          padding:'2%',
+          padding: '2%',
           borderRadius: 20,
-          justifyContent:'center',
-          alignItems:'center'
-        }}>
-        <IconComponent
-          iconDirectory="MaterialIcons"
-          name="favorite-outline"
-          size={25}
-          color={theme.colors.tertiary}
-        />
-      </Pressable>
-      <Card.Content>
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+        iconDirectory="MaterialIcons"
+        icon="favorite-outline"
+        iconColor={theme.colors.tertiary}
+        iconSize={25}
+        onPress={() => console.log('favorites')}
+      />
+      <View style={{justifyContent: 'space-between'}}>
         <Text
-          variant="labelMedium"
+          variant="labelSmall"
           ellipsizeMode="tail"
           style={{flex: 1}}
           numberOfLines={3}>
           {props.data.title}
         </Text>
-        <Text variant="labelLarge">$ {props.data.price}</Text>
-      </Card.Content>
-    </Card>
+        <View style={{flexDirection: 'row', justifyContent: 'space-between',alignItems:'center',marginTop:'5%'}}>
+          <Text variant="labelLarge">$ {props.data.price}</Text>
+          <IconButton
+            containerStyle={{
+              backgroundColor: theme.colors.primaryContainer,
+              padding: '5%',
+              borderRadius: 20,
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+            iconDirectory="FontAwesome5"
+            icon="shopping-basket"
+            iconColor={theme.colors.tertiary}
+            iconSize={20}
+            onPress={() => console.log('cart')}
+          />
+        </View>
+      </View>
+    </Pressable>
   );
 };
 

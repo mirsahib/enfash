@@ -11,14 +11,14 @@ import CatagoryData from '@utils/mock/CatagoryData';
 const Home = () => {
 
     return (
-            <View style={{ flex: 1, paddingHorizontal: '5%'  }}>
+            <View style={{ flex: 1, paddingHorizontal: '2%'  }}>
                 <FlatList
                     ListHeaderComponent={
                         <FlatListHeader />
                     }
                     ListFooterComponent={
                         <>
-                            <Text variant='titleMedium'>Best Seller</Text>
+                            <Text variant='titleLarge'>Best Seller</Text>
                             <ProductComponent />
                         </>
                     }
