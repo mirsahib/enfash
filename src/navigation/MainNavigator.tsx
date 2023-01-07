@@ -6,6 +6,7 @@ import HomeScreens from '@features/Home'
 import MessageScreens from '@features/Messages'
 import {MainNavParams} from './utils/NavigationTypes'
 import HomeNavigator from './DrawerNavigator'
+import MainHeaderRight from '@components/MainHeaderRight'
 
 const Stack = createNativeStackNavigator<MainNavParams>()
 
@@ -14,7 +15,10 @@ const MainNavigator = () => {
     <Stack.Navigator>
         <Stack.Screen name="HomeNav" options={{headerShown:false}} component={HomeNavigator}/>
         <Stack.Screen name="Search" options={{headerTitle:""}} component={HomeScreens.Search}/>
-        <Stack.Screen name="SearchByCatagory" options={{headerTitle:"Catagory"}} component={HomeScreens.SearchByCatagory}/>
+        <Stack.Screen name="SearchByCatagory" options={{
+          headerTitle:"Catagory",
+          headerRight:()=><MainHeaderRight/>
+          }} component={HomeScreens.SearchByCatagory}/>
         <Stack.Screen name="ProductNav" options={{headerShown:false}} component={ProductNavigator}/>
         <Stack.Screen name="MessageNav" options={{headerTitle:"Message"}} component={MessageScreens.Message}/>
         <Stack.Screen name="AccountNav" options={{headerShown:false}} component ={ProfileNavigator}/>

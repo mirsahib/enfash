@@ -1,6 +1,6 @@
 import { createDrawerNavigator } from "@react-navigation/drawer"
-import Header from '@features/Home/components/Header'
-import HeaderRight from '@features/Home/components/HeaderRight'
+import MainHeader from '@components/MainHeader'
+import MainHeaderRight from '@components/MainHeaderRight'
 import TabNavigator from "./TabNavigator"
 
 
@@ -12,12 +12,12 @@ const DrawerNavigator =()=>{
             <Drawer.Screen name='TabNav' options={{
                 drawerLabel:"Home",
                 
-                headerTitle:()=><Header/>,
+                headerTitle:()=><MainHeader/>,
                 headerTitleAlign:'center',
                 headerStyle:{
                     height:60
                 },
-                headerRight:()=><HeaderRight/>,
+                headerRight:()=><MainHeaderRight/>,
                 headerRightContainerStyle:{
                     paddingHorizontal:'5%'
                 },

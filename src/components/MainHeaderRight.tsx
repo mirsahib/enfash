@@ -1,7 +1,8 @@
 import React from 'react';
-import {useTheme} from 'react-native-paper';
-import IconButton from './IconButton';
-const HeaderRight = () => {
+import { useTheme } from 'react-native-paper';
+import IconButton from '@features/Home/components/IconButton';
+
+const MainHeaderRight = () => {
   const theme = useTheme();
   return (
     <IconButton
@@ -13,13 +14,12 @@ const HeaderRight = () => {
         alignItems: 'center',
         borderRadius: 40 / 2,
       }}
-      iconDirectory="FontAwesome5"
-      icon="shopping-basket"
+      iconDirectory="Ionicons"
+      icon="md-basket-outline"
       iconColor={theme.colors.primary}
-      iconSize={20}
+      iconSize={25}
     />
   );
 };
 
-export default HeaderRight;
-
+export default MainHeaderRight;
