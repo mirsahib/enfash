@@ -1,15 +1,16 @@
 import { View, Pressable, StyleProp, ViewProps } from 'react-native'
 import React from 'react'
 import { Text, useTheme } from 'react-native-paper'
-import IconComponent, { directory } from '@components/IconComponent'
+import IconComponent from '@components/IconComponent'
+import { Icondirectory } from '@src/types'
 
 type ProfileActionProps = {
   actionText: string,
   actionIcon: string,
   actionIconSecondary?: string
-  actionIconSecondaryDirectory?: directory
+  actionIconSecondaryDirectory?: Icondirectory
   actionSecondaryText?: string
-  iconDirectory: directory,
+  iconDirectory: Icondirectory,
   onPress:()=>void
   containerStyle?:StyleProp<ViewProps>
 }

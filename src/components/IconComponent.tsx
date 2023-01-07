@@ -1,25 +1,5 @@
+import { IconComponentProps } from '@src/types'
 import React from 'react'
-
-export type directory = "AntDesign"
-    | "Entypo"
-    | "EvilIcons"
-    | "Feather"
-    | "FontAwesome"
-    | "FontAwesome5"
-    | "FontAwesome5Pro"
-    | "Fontisto"
-    | "Foundation"
-    | "Ionicons"
-    | "MaterialIcons"
-    | "Octicons"
-    | "Zocial"
-    | "SimpleLineIcons"
-
-type IconComponentProps = {
-    iconDirectory: directory,
-    [key: string]: any
-}
-
 const IconComponent = (props: IconComponentProps) => {
 
     let Component = null

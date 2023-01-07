@@ -1,4 +1,4 @@
-import {directory} from '@components/IconComponent';
+import { Icondirectory } from '@src/types';
 import {ProductType} from '@utils/containerTypes';
 import {StyleProp, ViewStyle} from 'react-native';
 type CardProps = {
@@ -13,7 +13,7 @@ type CatagoryCardProps = {
 
 type IconButtonPropsType = {
   containerStyle: StyleProp<ViewStyle>;
-  iconDirectory: directory;
+  iconDirectory: Icondirectory;
   icon: string;
   iconSize: number;
   iconColor: string;
