@@ -1,4 +1,4 @@
-import {View, Text} from 'react-native';
+import {View, FlatList} from 'react-native';
 import React from 'react';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
@@ -8,8 +8,8 @@ import {
 } from '@navigation/utils/NavigationTypes';
 import setNavigationOptions from '../hooks/setNavigationOption';
 import Layout from '@hoc/Layout';
-import ProductData from '@utils/mock/ProductData'
-import ProductComponent from '../components/ProductComponent';
+import ProductData from '@utils/mock/ProductData';
+import CardComponent from '../components/Card';
 
 const SearchByCatagory = () => {
   const navigation = useNavigation<NativeStackNavigationProp<MainNavParams>>();
@@ -18,7 +18,19 @@ const SearchByCatagory = () => {
   setNavigationOptions(navigation, {headerTitle: headerTitle});
 
   return (
-    <ProductComponent/>
+    <View>
+      <FlatList
+        data={ProductData}
+        numColumns={2}
+        columnWrapperStyle={{
+          flex: 1,
+          justifyContent: 'space-around',
+          margin: '2%',
+        }}
+        keyExtractor={item => item.id}
+        renderItem={item => <CardComponent data={item.item} />}
+      />
+    </View>
   );
 };
 

@@ -12,10 +12,10 @@ const FlatListHeader = () => {
   const onChangeSearch = (query: string) => setSearchQuery(query);
   const navigation = useNavigation<NativeStackNavigationProp<MainNavParams>>();
   return (
-    <View style={{marginVertical: '5%'}}>
-      <Text variant="titleMedium">
+    <View>
+      {/* <Text variant="titleMedium">
         Find the best deals,delivered to your door
-      </Text>
+      </Text> */}
       <Searchbar
         placeholder="Search for products..."
         placeholderTextColor={theme.colors.secondary}

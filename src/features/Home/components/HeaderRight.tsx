@@ -1,23 +1,25 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import Icon from 'react-native-vector-icons/FontAwesome'
-import { useTheme } from 'react-native-paper'
+import React from 'react';
+import {useTheme} from 'react-native-paper';
+import IconButton from './IconButton';
 const HeaderRight = () => {
-    const theme = useTheme()
+  const theme = useTheme();
   return (
-    <View style={{
-      width:40,
-      height:40,
-      backgroundColor:theme.colors.primaryContainer,
-      justifyContent:'center',
-      alignItems:'center',
-      borderRadius:40/2
-      }}>
-      <Icon name='bell-o' size={24} color={theme.colors.primary}/>
-    </View>
-  )
-}
+    <IconButton
+      containerStyle={{
+        width: 40,
+        height: 40,
+        backgroundColor: theme.colors.primaryContainer,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 40 / 2,
+      }}
+      iconDirectory="FontAwesome5"
+      icon="shopping-basket"
+      iconColor={theme.colors.primary}
+      iconSize={20}
+    />
+  );
+};
 
-export default HeaderRight
+export default HeaderRight;
 
-const styles = StyleSheet.create({})
