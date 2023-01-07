@@ -15,7 +15,7 @@ const Cart = () => {
     const products = items.itemList
 
     return (
-        <View style={{ flex: 1, justifyContent: 'center' }}>
+        <View style={{ flex: 1, justifyContent: 'center',paddingHorizontal:'5%' }}>
             {items.totalProduct!=0?<><View style={{ height: '35%', marginTop: '5%' }}>
                 {/* shopping list */}
                 {/*@ts-ignore*/ }
@@ -60,7 +60,7 @@ const Cart = () => {
             <View style={{ flex: 1, paddingHorizontal: '5%' }}>
                 {/* payment button */}
                 <Button mode='contained' contentStyle={{ height: 60 }} >Proceed to Checkout</Button>
-            </View></>:<DefaultScreen message='No item in the shopping cart' buttonText='Continue Shopping'/>}
+            </View></>:<DefaultScreen />}
 
         </View>
     )
