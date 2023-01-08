@@ -31,11 +31,11 @@ const TabNavigatorOptions = (props: TabScreenProps) => {
                 tabBarLabel: "Message",
                 tabBarShowLabel: true,
                 tabBarIcon: () => <Icon name="message1" color={"black"} size={25} />,
-                tabBarButton: (props) => (
-                    <Pressable {...props} onPress={() => navigation.navigate("MessageNav", { screen: "Message" })}>
-                        {props.children}
-                    </Pressable>
-                )
+                // tabBarButton: (props) => (
+                //     <Pressable {...props} onPress={() => navigation.navigate("MessageNav", { screen: "Message" })}>
+                //         {props.children}
+                //     </Pressable>
+                // )
             }
             break
         case 'CartTab':

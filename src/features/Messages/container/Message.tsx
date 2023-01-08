@@ -3,22 +3,28 @@ import React, {useState} from 'react';
 import Layout from '@hoc/Layout';
 import {IconButton, useTheme} from 'react-native-paper';
 import TextContainer from '../components/TextContainer';
-import { MessagePayloadType } from '../type';
+import {MessagePayloadType} from '../type';
 import MessageData from '@utils/mock/Message';
+import {useNavigation} from '@react-navigation/native';
+import {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
+import {TabNavParams} from '@navigation/utils/NavigationTypes';
+import {setBottomNavigationOptions} from '@hooks/setNavigationOption';
 
 const Message = () => {
   const [messages, setMessages] = useState<MessagePayloadType[]>(MessageData);
   const [input, setInput] = useState<string>('');
   const theme = useTheme();
+  const navigation = useNavigation<BottomTabNavigationProp<TabNavParams>>();
+  setBottomNavigationOptions(navigation, {tabBarStyle: {display: 'none'}});
 
   const addMessage = () => {
-    let uuid = Math.floor(Math.random() * 100) + 1
-    const newMessage:MessagePayloadType = {
+    let uuid = Math.floor(Math.random() * 100) + 1;
+    const newMessage: MessagePayloadType = {
       id: uuid.toString(),
-      text:input,
-      type:"SHOPPER"
-    }
-    setMessages([...MessageData,newMessage]);
+      text: input,
+      type: 'SHOPPER',
+    };
+    setMessages([...MessageData, newMessage]);
     setInput('');
   };
 
@@ -28,7 +34,7 @@ const Message = () => {
         inverted
         data={messages}
         contentContainerStyle={{
-          flexDirection:'column-reverse',
+          flexDirection: 'column-reverse',
           paddingTop: '1%',
           paddingHorizontal: '2%',
         }}

@@ -1,29 +1,45 @@
-import React from 'react'
-import HomeScreens from '@features/Home'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { TabNavParams } from './utils/NavigationTypes'
-import TabNavigatorOptions from './utils/TabNavigatorOptions'
-import { View } from 'react-native'
-import WishlistScreens from '@features/Wishlist'
-import Cart from '@container/Cart'
+import React from 'react';
+import HomeScreens from '@features/Home';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {TabNavParams} from './utils/NavigationTypes';
+import TabNavigatorOptions from './utils/TabNavigatorOptions';
+import {View} from 'react-native';
+import WishlistScreens from '@features/Wishlist';
+import Cart from '@container/Cart';
+import MessageScreens from '@features/Messages';
 
-
-const Tab = createBottomTabNavigator<TabNavParams>()
+const Tab = createBottomTabNavigator<TabNavParams>();
 
 const TabNavigator = () => {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen
+        name="HomeTab"
+        component={HomeScreens.Home}
+        options={TabNavigatorOptions}
+      />
+      <Tab.Screen
+        name="MessageTab"
+        component={MessageScreens.Message}
+        options={TabNavigatorOptions}
+      />
+      <Tab.Screen
+        name="CartTab"
+        component={Cart}
+        options={TabNavigatorOptions}
+      />
+      <Tab.Screen
+        name="WishlistTab"
+        component={WishlistScreens.Wishlist}
+        options={TabNavigatorOptions}
+      />
+      <Tab.Screen
+        name="AccountTab"
+        component={View}
+        options={TabNavigatorOptions}
+      />
+    </Tab.Navigator>
+  );
+};
 
-    return (
-        <Tab.Navigator >
-            <Tab.Screen name='HomeTab' component={HomeScreens.Home} options={TabNavigatorOptions} />
-            <Tab.Screen name='MessageTab' component={View} 
-                options={TabNavigatorOptions} />
-            <Tab.Screen name='CartTab' component={Cart}
-                options={TabNavigatorOptions} />
-            <Tab.Screen name='WishlistTab' component={WishlistScreens.Wishlist} options={TabNavigatorOptions}/>
-            <Tab.Screen name='AccountTab' component={View}
-                options={TabNavigatorOptions} />
-        </Tab.Navigator>
-    )
-}
-
-export default TabNavigator
+export default TabNavigator;

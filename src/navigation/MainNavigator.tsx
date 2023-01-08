@@ -20,7 +20,7 @@ const MainNavigator = () => {
           headerRight:()=><MainHeaderRight/>
           }} component={HomeScreens.SearchByCatagory}/>
         <Stack.Screen name="ProductNav" options={{headerShown:false}} component={ProductNavigator}/>
-        <Stack.Screen name="MessageNav" options={{headerTitle:"Message"}} component={MessageScreens.Message}/>
+        {/* <Stack.Screen name="MessageNav" options={{headerTitle:"Message"}} component={MessageScreens.Message}/> */}
         <Stack.Screen name="AccountNav" options={{headerShown:false}} component ={ProfileNavigator}/>
     </Stack.Navigator>
   )
