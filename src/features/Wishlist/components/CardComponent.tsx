@@ -1,33 +1,67 @@
-import { View, Image } from 'react-native'
-import React from 'react'
-import { Card, useTheme,Text, IconButton } from 'react-native-paper'
+import {View, Image, Pressable} from 'react-native';
+import React from 'react';
+import {useTheme, Text} from 'react-native-paper';
+import IconComponent from '@components/IconComponent';
+import {CardComponentPropsType} from '../type';
+import IconButton from '@components/IconButton';
 
-const CardComponent = () => {
-    const theme = useTheme()
+const CardComponent = (props: CardComponentPropsType) => {
+  const theme = useTheme();
+  const {image, title, price, rating} = props;
 
-    const handleNav = () => {
-        console.log('go to product')
-    }
-    return (
-        <Card onPress={() => handleNav()} style={{ backgroundColor: theme.colors.background, padding: "3%" }}>
-            <View style={{ flexDirection: 'row' }}>
-                <Image source={{ uri: 'https://picsum.photos/700' }} style={{ flex: 1, height: 100 }} />
-                <Card.Content style={{ flex: 2 }}>
-                    <Text variant='labelMedium' ellipsizeMode='tail' style={{ flex: 1 }} numberOfLines={2}>Purple Snickers</Text>
-                    <Text variant='labelLarge'>$ 23.3</Text>
-                    <Text variant='labelLarge'> 4.1</Text>
-                </Card.Content>
-                <Card.Actions style={{ flex: 1 }}>
-                    <IconButton
-                        icon="cart-variant"
-                        iconColor={theme.colors.primary}
-                        size={20}
-                        onPress={() => console.log('Pressed')}
-                    />
-                </Card.Actions>
+  const handleNav = () => {
+    console.log('go to product');
+  };
+  return (
+    <Pressable
+      onPress={() => handleNav()}
+      style={{backgroundColor: theme.colors.background, padding: '3%'}}>
+      <View style={{flexDirection: 'row'}}>
+        <Image source={{uri: image}} style={{flex: 1, height: 100}} />
+        <View style={{flex: 2, marginHorizontal: '5%'}}>
+          <Text
+            variant="labelSmall"
+            ellipsizeMode="tail"
+            style={{flex: 1}}
+            numberOfLines={2}>
+            {title}
+          </Text>
+          <Text variant="labelLarge">$ {price}</Text>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+            }}>
+            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+              <IconComponent
+                iconDirectory="Entypo"
+                name="star"
+                size={18}
+                color={theme.colors.tertiary}
+              />
+              <Text variant="labelLarge"> {rating}</Text>
             </View>
-        </Card>
-    )
-}
+            <IconButton
+              containerStyle={{
+                backgroundColor: theme.colors.primaryContainer,
+                width: 40,
+                height: 40,
+                borderRadius: 20,
+                justifyContent:'center',
+                alignItems:'center'
+              }}
+              onPress = {()=>console.log('Press')}
+              iconDirectory="AntDesign"
+              icon="shoppingcart"
+              iconColor={theme.colors.tertiary}
+              iconSize={25}
+            />
+          </View>
+        </View>
+      </View>
+    </Pressable>
+  );
+};
 
-export default CardComponent
+export default CardComponent;

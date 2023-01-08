@@ -1,19 +1,21 @@
-import { View } from 'react-native'
-import React from 'react'
-import { useTheme } from 'react-native-paper'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import CardComponent from '../components/CardComponent'
+import {FlatList, View} from 'react-native';
+import React from 'react';
+import CardComponent from '../components/CardComponent';
+import Layout from '@hoc/Layout';
+import ProductData from '@utils/mock/ProductData'
 
 const Wishlist = () => {
-  const theme = useTheme()
-
   return (
-    <SafeAreaView style={{ flex: 1, justifyContent: 'center', backgroundColor: theme.colors.primaryContainer }}>
-      <View style={{ flex: 1, paddingHorizontal: '5%', paddingTop: '5%' }}>
-        <CardComponent/>
-      </View>
-    </SafeAreaView>
-  )
-}
+    <View style={{flex: 1, paddingHorizontal: '5%'}}>
+      <FlatList
+        data={ProductData}
+        contentContainerStyle={{paddingVertical:'5%'}}
+        ItemSeparatorComponent={()=><View style={{height:10}}/>}
+        keyExtractor={item => item.id}
+        renderItem={({item}) => <CardComponent image={item.image} title={item.title} price={item.price} rating={item.rating.rate}/>}
+      />
+    </View>
+  );
+};
 
-export default Wishlist
+export default Layout(Wishlist);

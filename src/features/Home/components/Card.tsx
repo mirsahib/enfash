@@ -2,12 +2,10 @@ import React from 'react';
 import {useTheme, Text} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {Card} from 'react-native-paper';
 import {MainNavParams} from '@navigation/utils/NavigationTypes';
 import {CardProps} from '../types';
 import {Image, Pressable, View} from 'react-native';
-import IconComponent from '@components/IconComponent';
-import IconButton from './IconButton';
+import IconButton from '@components/IconButton';
 
 const CardComponent = (props: CardProps) => {
   const theme = useTheme();
