@@ -1,13 +1,11 @@
 import Product from "./container/Product";
-import HeaderRight from "./components/HeaderRight";
-import Cart from "@container/Cart";
 import Review from "./container/Review";
+import WriteReview from "./container/WriteReview";
 
 const screen = {
     Product:Product,
-    HeaderRight:HeaderRight,
-    Cart:Cart,
-    Review:Review
+    Review:Review,
+    WriteReview:WriteReview
 }
 
 export default screen

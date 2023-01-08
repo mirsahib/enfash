@@ -13,7 +13,8 @@ type HomeNavParams = {
 }
 type ProductNavParams = {
     Product: ProductType,
-    Review: any
+    Review: any,
+    WriteReview: any
 }
 type ProfileNavParams = {
     Profile:any

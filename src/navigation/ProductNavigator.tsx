@@ -14,6 +14,7 @@ const ProductNavigator = () => {
             <Stack.Screen name="Review" component={ProductScreens.Review}
             options={ProductNavigatorOptions}
             />
+            <Stack.Screen name="WriteReview" component={ProductScreens.WriteReview} options={ProductNavigatorOptions}/>
         </Stack.Navigator>
     )
 }

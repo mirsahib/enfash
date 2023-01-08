@@ -20,7 +20,7 @@ type IconComponentProps = {
     [key: string]: any
 }
 type IconButtonPropsType = {
-    containerStyle: StyleProp<ViewStyle>;
+    containerStyle?: StyleProp<ViewStyle>;
     iconDirectory: Icondirectory;
     icon: string;
     iconSize: number;
