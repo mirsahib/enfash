@@ -13,7 +13,7 @@ type HomeNavParams = {
 }
 type ProductNavParams = {
     Product: ProductType,
-    Cart: any
+    Review: any
 }
 type ProfileNavParams = {
     Profile:any
@@ -50,7 +50,6 @@ type MainNavParams = {
     }
     ProductNav: any,
     MessageNav: any,
-    CartNav: any,
     AccountNav: NavigatorScreenParams<ProfileNavParams>,
 }
 

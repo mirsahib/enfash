@@ -1,91 +1,126 @@
-import { View, Image, ScrollView, Dimensions } from 'react-native'
-import React from 'react'
-import { ProductNavProps } from '..'
-import {  useRoute } from '@react-navigation/native'
-import { Avatar, Button, Text, useTheme } from 'react-native-paper'
-import { Rating } from 'react-native-ratings'
-import { addToCartOnce } from '@store/cart'
-import { useAppDispatch, useAppSelector } from '@store/index'
-import Icon from 'react-native-vector-icons/MaterialIcons'
-import { SafeAreaView } from 'react-native-safe-area-context'
+import {View, Image, ScrollView, Dimensions} from 'react-native';
+import React from 'react';
+import {
+  MainNavParams,
+  ProductsRouteProps,
+} from '@navigation/utils/NavigationTypes';
+import {useNavigation, useRoute} from '@react-navigation/native';
+import {Button, Divider, Text, useTheme} from 'react-native-paper';
+import {addToCartOnce} from '@store/cart';
+import {useAppDispatch, useAppSelector} from '@store/index';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import ReviewCard from '../components/ReviewCard';
+import IconComponent from '@components/IconComponent';
+import Layout from '@hoc/Layout';
+import IconButton from '@components/IconButton';
 
-const { width } = Dimensions.get('screen')
+const {width} = Dimensions.get('screen');
 
 const Product = () => {
-  const { params } = useRoute<ProductNavProps>()
-  const theme = useTheme()
-  const dispatch = useAppDispatch()
-  const products = useAppSelector(state => state.shoppingCart.itemList)
-  const product = products.find(item => item.product?.id === params.id)
+  const {params} = useRoute<ProductsRouteProps>();
+  const theme = useTheme();
+  const navigation = useNavigation<NativeStackNavigationProp<MainNavParams>>();
+  const dispatch = useAppDispatch();
+  const products = useAppSelector(state => state.shoppingCart.itemList);
+  const product = products.find(item => item.product?.id === params.id);
 
-  
-  
   const addItem = () => {
-    dispatch(addToCartOnce(params))
-  }
-  
-
+    dispatch(addToCartOnce(params));
+  };
+  const gotoReviewScreen = () => {
+    navigation.navigate('ProductNav', {screen: 'Review'});
+  };
 
   return (
-    <SafeAreaView style={{ flex: 1, justifyContent: 'center', }}>
-      <Image source={{ uri: params.image }} style={{ flex: 1, alignSelf: 'center', width: '90%' }} />
-      {/* product name and discription */}
-      <ScrollView style={{ flex: 1, backgroundColor: 'white', borderTopLeftRadius: 25, borderTopRightRadius: 25, padding: '5%' }}>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-          <Text variant='labelLarge' style={{ flex: 1, paddingRight: '5%' }} adjustsFontSizeToFit numberOfLines={3}>{params.title}</Text>
-          <Icon name="favorite-outline" size={24} color={theme.colors.primary} />
+    <ScrollView
+      style={{
+        flex: 1,
+        backgroundColor: theme.colors.background,
+      }}>
+      <Image
+        source={{uri: params.image}}
+        style={{height: 400, width: '100%'}}
+        resizeMode={'contain'}
+      />
+      <View
+        style={{
+          backgroundColor: theme.colors.primaryContainer,
+          paddingHorizontal: '5%',
+          paddingTop: '10%',
+          borderTopLeftRadius: 30,
+          borderTopRightRadius: 30,
+        }}>
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'flex-start',
+          }}>
+          <Text
+            variant="labelLarge"
+            style={{flex: 1, paddingRight: '5%'}}
+            adjustsFontSizeToFit
+            numberOfLines={3}>
+            {params.title}
+          </Text>
+          <IconButton
+            containerStyle={{
+              backgroundColor: theme.colors.background,
+              width:40,
+              height:40,
+              borderRadius: 20,
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+            iconDirectory="MaterialIcons"
+            icon="favorite-outline"
+            iconColor={theme.colors.tertiary}
+            iconSize={25}
+            onPress={() => console.log('favorites')}
+          />
         </View>
 
-        <View style={{ flexDirection: 'row' }}>
-          <Rating
-            type='custom'
-            ratingColor={theme.colors.primary}
-            ratingBackgroundColor={theme.colors.secondary}
-            tintColor={"white"}
-            imageSize={20}
-            ratingCount={1}
-            readonly={true}
-            startingValue={params.rating.rate}
-            style={{ alignItems: 'flex-start', marginRight: '1%' }}
+        <View style={{flexDirection: 'row'}}>
+          <IconComponent
+            style={{marginRight:5}}
+            iconDirectory="Entypo"
+            name="star"
+            size={20}
+            color={theme.colors.primary}
           />
           <Text>{params.rating.rate}</Text>
         </View>
 
-        <View style={{ marginVertical: '5%' }}>
-          <Text variant='titleLarge' style={{ fontWeight: '700', marginBottom: '5%' }}>${params.price}</Text>
-          <Text variant='titleMedium' style={{ marginBottom: '5%' }}>Description</Text>
-          <Text style={{ color: theme.colors.secondary, marginBottom: '5%' }}>{params.description}</Text>
-          <Button mode='contained' onPress={()=>addItem()} icon='cart'>{product?"ITEM ADDED":"ADD TO CART"}</Button>
+        <View style={{marginTop: '5%',marginBottom:"10%"}}>
+          <Text
+            variant="titleLarge"
+            style={{fontWeight: '700', marginBottom: '5%'}}>
+            ${params.price}
+          </Text>
+          <Text variant="titleMedium" style={{marginBottom: '5%'}}>
+            Description
+          </Text>
+          <Text style={{ marginBottom: '5%'}}>
+            {params.description}
+          </Text>
+          <Button mode="contained" onPress={() => addItem()} icon="cart">
+            {product ? 'ITEM ADDED' : 'ADD TO CART'}
+          </Button>
         </View>
-        <View >
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-            <Text variant='titleMedium'>Reviews ({params.rating.count})</Text>
-            <Text style={{color:theme.colors.tertiary}}>View All</Text>
+          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+            <Text variant="titleMedium">Reviews ({params.rating.count})</Text>
+            <Text
+              style={{color: theme.colors.tertiary}}
+              onPress={() => gotoReviewScreen()}>
+              View All
+            </Text>
           </View>
-          <View style={{ height: 2, backgroundColor: theme.colors.primary }}></View>
-          <View style={{ marginVertical: '5%', padding: '5%' }}>
-            {/* review container */}
-            <View style={{ flexDirection: 'row', marginBottom: '2%' }}>
-              <Avatar.Text size={40} label='CW' />
-              <View style={{ alignItems: 'flex-start', marginLeft: '5%' }}>
-                <Text>Cameroon Williamson</Text>
-                <Rating
-                  type='custom'
-                  ratingColor={theme.colors.primary}
-                  ratingBackgroundColor={theme.colors.secondary}
-                  tintColor={"white"}
-                  imageSize={20}
-                  ratingCount={5}
-                  readonly={true}
-                />
-              </View>
-            </View>
-            <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente reiciendis accusamus quis dolorem quidem incidunt nesciunt quas deserunt minima pariatur suscipit, quos unde commodi alias repellat? Hic consequuntur quis animi.</Text>
-          </View>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  )
-}
+          <Divider style={{height: 2, backgroundColor: theme.colors.primary}} />
+          <ReviewCard />
+      </View>
+    </ScrollView>
+  );
+};
 
-export default Product
+export default Layout(Product);

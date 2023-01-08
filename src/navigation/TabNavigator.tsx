@@ -5,7 +5,6 @@ import { TabNavParams } from './utils/NavigationTypes'
 import TabNavigatorOptions from './utils/TabNavigatorOptions'
 import { View } from 'react-native'
 import WishlistScreens from '@features/Wishlist'
-import ProfileNavigator from './ProfileNavigator'
 import Cart from '@container/Cart'
 
 
