@@ -1,9 +1,19 @@
 import React from 'react';
 import { useTheme } from 'react-native-paper';
 import IconButton from '@components/IconButton';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { MainNavParams } from '@navigation/utils/NavigationTypes';
 
 const MainHeaderRight = () => {
   const theme = useTheme();
+  const navigation = useNavigation<NativeStackNavigationProp<MainNavParams>>()
+
+  const gotoCartScreen = ()=>{
+    // three tier deep nested navigation
+    navigation.navigate("HomeNav",{screen:"TabNav",params:{screen:"CartTab"}})
+  }
+
   return (
     <IconButton
       containerStyle={{
@@ -18,6 +28,7 @@ const MainHeaderRight = () => {
       icon="md-basket-outline"
       iconColor={theme.colors.primary}
       iconSize={25}
+      onPress={() =>gotoCartScreen()}
     />
   );
 };
