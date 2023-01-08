@@ -36,7 +36,7 @@ const Product = () => {
     <ScrollView
       style={{
         flex: 1,
-        backgroundColor: theme.colors.background,
+        backgroundColor: theme.colors.primaryContainer,
       }}>
       <Image
         source={{uri: params.image}}
@@ -45,7 +45,7 @@ const Product = () => {
       />
       <View
         style={{
-          backgroundColor: theme.colors.primaryContainer,
+          backgroundColor: theme.colors.background,
           paddingHorizontal: '5%',
           paddingTop: '10%',
           borderTopLeftRadius: 30,
@@ -67,8 +67,8 @@ const Product = () => {
           <IconButton
             containerStyle={{
               backgroundColor: theme.colors.background,
-              width:40,
-              height:40,
+              width: 40,
+              height: 40,
               borderRadius: 20,
               justifyContent: 'center',
               alignItems: 'center',
@@ -80,10 +80,9 @@ const Product = () => {
             onPress={() => console.log('favorites')}
           />
         </View>
-
         <View style={{flexDirection: 'row'}}>
           <IconComponent
-            style={{marginRight:5}}
+            style={{marginRight: 5}}
             iconDirectory="Entypo"
             name="star"
             size={20}
@@ -91,8 +90,7 @@ const Product = () => {
           />
           <Text>{params.rating.rate}</Text>
         </View>
-
-        <View style={{marginTop: '5%',marginBottom:"10%"}}>
+        <View style={{marginTop: '5%', marginBottom: '10%'}}>
           <Text
             variant="titleLarge"
             style={{fontWeight: '700', marginBottom: '5%'}}>
@@ -101,23 +99,31 @@ const Product = () => {
           <Text variant="titleMedium" style={{marginBottom: '5%'}}>
             Description
           </Text>
-          <Text style={{ marginBottom: '5%'}}>
-            {params.description}
-          </Text>
+          <Text style={{marginBottom: '5%'}}>{params.description}</Text>
           <Button mode="contained" onPress={() => addItem()} icon="cart">
             {product ? 'ITEM ADDED' : 'ADD TO CART'}
           </Button>
         </View>
-          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-            <Text variant="titleMedium">Reviews ({params.rating.count})</Text>
-            <Text
-              style={{color: theme.colors.tertiary}}
-              onPress={() => gotoReviewScreen()}>
-              View All
-            </Text>
-          </View>
-          <Divider style={{height: 2, backgroundColor: theme.colors.primary}} />
-          <ReviewCard />
+        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+          <Text variant="titleMedium">Reviews ({params.rating.count})</Text>
+          <Text
+            style={{color: theme.colors.tertiary}}
+            onPress={() => gotoReviewScreen()}>
+            View All
+          </Text>
+        </View>
+        <Divider style={{height: 2, backgroundColor: theme.colors.primary}} />
+        <ReviewCard
+          image="http://dummyimage.com/142x100.png/cc0000/ffffff"
+          name="William Justin"
+          ratingValue={3.5}
+          reviewText={
+            'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore placeat at ea culpa eius vitae quam? Iusto id non odio reiciendis consequatur expedita labore magni optio, cupiditate aliquam, perferendis minima.'
+          }
+          containnerStyle={{
+            marginVertical:"5%"
+          }}
+        />
       </View>
     </ScrollView>
   );
