@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTheme } from 'react-native-paper';
-import IconButton from '@features/Home/components/IconButton';
+import IconButton from '@components/IconButton';
 
 const MainHeaderRight = () => {
   const theme = useTheme();
