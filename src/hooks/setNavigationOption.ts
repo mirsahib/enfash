@@ -3,7 +3,7 @@ import {
   NativeStackNavigationOptions,
   NativeStackNavigationProp,
 } from '@react-navigation/native-stack';
-import {useEffect} from 'react';
+import {useLayoutEffect} from 'react';
 import {
   BottomTabNavigationOptions,
   BottomTabNavigationProp,
@@ -13,7 +13,7 @@ const setStackNavigationOptions = <T extends ParamListBase>(
   navigation: NativeStackNavigationProp<T>,
   options: NativeStackNavigationOptions,
 ) => {
-  useEffect(() => {
+  useLayoutEffect(() => {
     navigation.setOptions(options);
   }, [navigation]);
 };
@@ -22,12 +22,9 @@ const setBottomNavigationOptions = <T extends ParamListBase>(
   navigation: BottomTabNavigationProp<T>,
   options: BottomTabNavigationOptions,
 ) => {
-  useEffect(() => {
+  useLayoutEffect(() => {
     navigation.setOptions(options);
   }, [navigation]);
 };
 
-export {
-    setStackNavigationOptions,
-    setBottomNavigationOptions
-};
+export {setStackNavigationOptions, setBottomNavigationOptions};
