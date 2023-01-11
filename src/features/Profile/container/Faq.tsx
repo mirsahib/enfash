@@ -1,6 +1,7 @@
 import {View} from 'react-native';
 import React from 'react';
 import {List, Text, useTheme} from 'react-native-paper';
+import Layout from '@hoc/Layout';
 
 const Faq = () => {
   const theme = useTheme();
@@ -112,4 +113,4 @@ const Faq = () => {
   );
 };
 
-export default Faq;
+export default Layout(Faq);

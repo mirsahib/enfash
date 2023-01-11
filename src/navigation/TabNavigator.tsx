@@ -18,11 +18,11 @@ const TabNavigator = () => {
         component={HomeScreens.Home}
         options={TabNavigatorOptions}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         name="MessageTab"
         component={MessageScreens.Message}
         options={TabNavigatorOptions}
-      />
+      /> */}
       <Tab.Screen
         name="CartTab"
         component={Cart}
@@ -33,11 +33,11 @@ const TabNavigator = () => {
         component={WishlistScreens.Wishlist}
         options={TabNavigatorOptions}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         name="AccountTab"
         component={View}
         options={TabNavigatorOptions}
-      />
+      /> */}
     </Tab.Navigator>
   );
 };

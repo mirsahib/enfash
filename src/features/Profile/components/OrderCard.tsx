@@ -2,15 +2,16 @@ import { View } from 'react-native'
 import React from 'react'
 import { Text, Button, useTheme } from 'react-native-paper'
 import { useNavigation } from '@react-navigation/native'
-import { MainNavParams } from '@navigation/utils/NavigationTypes'
+import { DrawerNavParams, MainNavParams } from '@navigation/utils/NavigationTypes'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { OrderCardProps } from '../types'
+import { DrawerNavigationProp } from '@react-navigation/drawer'
 
 
 
 const OrderCard = (props: OrderCardProps) => {
     const theme = useTheme()
-    const navigation = useNavigation<NativeStackNavigationProp<MainNavParams>>()
+    const navigation = useNavigation<DrawerNavigationProp<DrawerNavParams>>()
 
     const renderOrderStatus = () => {
         let text = null
@@ -30,8 +31,9 @@ const OrderCard = (props: OrderCardProps) => {
         return text
     }
     const navigateToDetails = () => {
-        navigation.navigate("AccountNav", {
-            screen: 'OrderDetails',
+        console.log('order details')
+        navigation.navigate("Order", {
+            screen: "OrderDetails",
             params: { 
                 orderId:props.orderId,
                 orderStatus:props.orderStatus,
