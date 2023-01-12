@@ -6,7 +6,7 @@ import PromoCodes from "./container/PromoCodes";
 import TrackOrder from "./container/TrackOrder";
 import Faq from "./container/Faq";
 import OrderDetails from "./container/OrderDetails";
-
+import EditProfile from "./container/EditProfile";
 
 const screen={
     Profile:Profile,
@@ -16,7 +16,8 @@ const screen={
     PromoCodes:PromoCodes,
     TrackOrder:TrackOrder,
     Faq:Faq,
-    OrderDetails:OrderDetails
+    OrderDetails:OrderDetails,
+    EditProfile:EditProfile
 }
 
 export  default screen

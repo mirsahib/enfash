@@ -17,9 +17,9 @@
       "@store/*": ["./src/store/*"],
       "@styles/*": ["./src/styles/*"],
       "@utils/*": ["./src/utils/*"],
-      "@src/*": ["src/*"],
       "@hoc/*":["./src/hoc/*"],
       "@hooks/*":["./src/hooks/*"],
+      "@src/*": ["src/*"],
     },
     /* Completeness */
     "skipLibCheck": true /* Skip type checking all .d.ts files. */

@@ -56,10 +56,11 @@ type DrawerNavParams = {
     Profile: any;
     PaymentMethod: any;
     Order: NavigatorScreenParams<OrderNavParams>;
-    PromoCode: any;
+    Promocodes: any;
+    TrackOrder: any;
     FAQ: any;
     Message: any;
-    LogOut: any;
+    Logout: any;
 };
 
 type MainNavParams = {
@@ -69,6 +70,7 @@ type MainNavParams = {
         headerTitle: string;
     };
     ProductNav: any;
+    EditProfile:any;
     //AccountNav: NavigatorScreenParams<ProfileNavParams>;
 };
 
@@ -88,7 +90,6 @@ type MainScreenProps = NativeStackScreenProps<MainNavParams>;
 export type {
     AuthNavParams,
     ProductNavParams,
-    // ProfileNavParams,
     TabNavParams,
     DrawerNavParams,
     MainNavParams,

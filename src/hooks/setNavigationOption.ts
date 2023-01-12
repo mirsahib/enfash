@@ -1,30 +1,43 @@
-import {ParamListBase} from '@react-navigation/native';
+import { ParamListBase } from '@react-navigation/native';
 import {
-  NativeStackNavigationOptions,
-  NativeStackNavigationProp,
+    NativeStackNavigationOptions,
+    NativeStackNavigationProp
 } from '@react-navigation/native-stack';
-import {useLayoutEffect} from 'react';
+import { useLayoutEffect } from 'react';
 import {
-  BottomTabNavigationOptions,
-  BottomTabNavigationProp,
+    BottomTabNavigationOptions,
+    BottomTabNavigationProp
 } from '@react-navigation/bottom-tabs';
+import {
+    DrawerNavigationOptions,
+    DrawerNavigationProp
+} from '@react-navigation/drawer';
 
 const setStackNavigationOptions = <T extends ParamListBase>(
-  navigation: NativeStackNavigationProp<T>,
-  options: NativeStackNavigationOptions,
+    navigation: NativeStackNavigationProp<T>,
+    options: NativeStackNavigationOptions
 ) => {
-  useLayoutEffect(() => {
-    navigation.setOptions(options);
-  }, [navigation]);
+    useLayoutEffect(() => {
+        navigation.setOptions(options);
+    }, [navigation]);
 };
 
 const setBottomNavigationOptions = <T extends ParamListBase>(
-  navigation: BottomTabNavigationProp<T>,
-  options: BottomTabNavigationOptions,
+    navigation: BottomTabNavigationProp<T>,
+    options: BottomTabNavigationOptions
 ) => {
-  useLayoutEffect(() => {
-    navigation.setOptions(options);
-  }, [navigation]);
+    useLayoutEffect(() => {
+        navigation.setOptions(options);
+    }, [navigation]);
 };
 
-export {setStackNavigationOptions, setBottomNavigationOptions};
+const setDrawerNavigationOptions = <T extends ParamListBase>(
+    navigation: DrawerNavigationProp<T>,
+    options: DrawerNavigationOptions
+) => {
+    useLayoutEffect(() => {
+        navigation.setOptions(options);
+    }, [navigation]);
+};
+
+export { setStackNavigationOptions, setBottomNavigationOptions,setDrawerNavigationOptions };
