@@ -1,8 +1,8 @@
 import { View } from 'react-native'
 import React from 'react'
-import { Button, Text, useTheme } from 'react-native-paper'
-import Layout from '../wrapper/Layout'
+import { Button, useTheme } from 'react-native-paper'
 import ProfileAction from '../components/ProfileAction'
+import Layout from '@hoc/Layout'
 const PaymentMethod = () => {
   const theme = useTheme()
   return (

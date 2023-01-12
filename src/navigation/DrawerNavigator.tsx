@@ -8,12 +8,13 @@ import ProfileScreens from '@features/Profile';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { DrawerNavParams } from './utils/NavigationTypes';
 import ProfileHeaderRight from '@features/Profile/components/ProfileHeaderRight';
+import { useState } from 'react';
 
 const Drawer = createDrawerNavigator<DrawerNavParams>();
 const Stack = createNativeStackNavigator();
 
 const OrderStack = () => (
-    <Stack.Navigator screenOptions={{animation:"slide_from_right"}}>
+    <Stack.Navigator screenOptions={{ animation: 'slide_from_right' }}>
         <Stack.Screen
             name="OrderHistory"
             options={{ headerShown: false }}
@@ -27,9 +28,9 @@ const OrderStack = () => (
     </Stack.Navigator>
 );
 
-
-
 const DrawerNavigator = () => {
+    const [isHeaderRightPressed,setIsHeaderRightPressed] = useState(false)
+
     return (
         <Drawer.Navigator initialRouteName="TabNav">
             <Drawer.Screen
@@ -51,13 +52,19 @@ const DrawerNavigator = () => {
             <Drawer.Screen
                 name="Profile"
                 options={{
-                    drawerLabel:"Profile",
-                    headerTitle:"Profile",
-                    headerRight: () => <ProfileHeaderRight />,
+                    drawerLabel: 'Profile',
+                    headerTitle: 'Profile',
+                    headerRight: () => <ProfileHeaderRight setIsHeaderRightPressed={setIsHeaderRightPressed} />,
                     headerRightContainerStyle: { paddingHorizontal: '5%' }
                 }}
-                component={ProfileScreens.Profile}
-            />
+            >
+                {(props) => (
+                    <ProfileScreens.Profile
+                        isHeaderRightPressed={isHeaderRightPressed}
+                        {...props}
+                    />
+                )}
+            </Drawer.Screen>
             <Drawer.Screen
                 name="Order"
                 options={{ drawerLabel: 'Order History' }}

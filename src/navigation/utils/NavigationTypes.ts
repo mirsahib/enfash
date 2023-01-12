@@ -53,7 +53,9 @@ type OrderNavParams = {
 };
 type DrawerNavParams = {
     TabNav: TabNavParams;
-    Profile: any;
+    Profile: {
+        onPressRight:()=>void
+    };
     PaymentMethod: any;
     Order: NavigatorScreenParams<OrderNavParams>;
     Promocodes: any;

@@ -29,10 +29,19 @@ type TrackOrderStatusProps={
     icon:string
 }
 
+type ProfilePropsType = {
+    isHeaderRightPressed:boolean
+}
+type ProfileRightHeaderProps = {
+    setIsHeaderRightPressed:React.Dispatch<React.SetStateAction<boolean>>
+}
+
 export type {
     OrderStatusTypes,
     OrderCardProps,
     OrderDetailsCardProps,
     PromptProps,
-    TrackOrderStatusProps
+    TrackOrderStatusProps,
+    ProfilePropsType,
+    ProfileRightHeaderProps
 }

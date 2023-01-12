@@ -1,19 +1,18 @@
 import React from 'react';
 import { useTheme } from 'react-native-paper';
-import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { MainNavParams } from '@navigation/utils/NavigationTypes';
 import IconButton from '@components/IconButton';
+import { ProfileRightHeaderProps } from '../types';
 
-const ProfileHeaderRight = () => {
+const ProfileHeaderRight = (props:ProfileRightHeaderProps) => {
     const theme = useTheme();
-    const navigation =
-        useNavigation<NativeStackNavigationProp<MainNavParams>>();
+    // const navigation =
+    //     useNavigation<NativeStackNavigationProp<MainNavParams>>();
 
-    const gotoWriteReviewScreen = () => {
-        // three tier deep nested navigation
-        navigation.navigate("EditProfile");
-    };
+    // const gotoWriteReviewScreen = () => {
+    //     // three tier deep nested navigation
+    //     navigation.navigate("EditProfile");
+    // };
+    const {setIsHeaderRightPressed} = props
 
     return (
         <IconButton
@@ -21,7 +20,7 @@ const ProfileHeaderRight = () => {
             icon="edit"
             iconColor={theme.colors.primary}
             iconSize={25}
-            onPress={() => gotoWriteReviewScreen()}
+            onPress={() =>setIsHeaderRightPressed(state=>!state)}
         />
     );
 };

@@ -1,16 +1,20 @@
 import { Image, View } from 'react-native';
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
     useTheme,
     Text,
 } from 'react-native-paper';
 import Layout from '@hoc/Layout';
 import ProfileData from '@utils/mock/ProfileData';
+import { ProfilePropsType } from '../types';
 
 
-const Profile = () => {
+const Profile = (props:ProfilePropsType) => {
     const theme = useTheme();
-
+    const {isHeaderRightPressed} = props;
+    useEffect(()=>{
+        console.log('header right pressed');
+    },[isHeaderRightPressed])
     return (
         <View
             style={{
@@ -80,4 +84,4 @@ const Profile = () => {
     );
 };
 
-export default Layout(Profile);
+export default Profile;
