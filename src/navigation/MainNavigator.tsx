@@ -6,6 +6,7 @@ import {MainNavParams} from './utils/NavigationTypes'
 import DrawerNavigator from './DrawerNavigator'
 import MainHeaderRight from '@components/MainHeaderRight'
 import ProfileScreens from '@features/Profile'
+import { View } from 'react-native'
 
 const Stack = createNativeStackNavigator<MainNavParams>()
 
@@ -22,6 +23,8 @@ const MainNavigator = () => {
           }} component={HomeScreens.SearchByCatagory}/>
         <Stack.Screen name="ProductNav" options={{headerShown:false}} component={ProductNavigator}/>
         <Stack.Screen name="EditProfile" options={{headerTitle:"Edit Profile"}} component={ProfileScreens.EditProfile}/>
+        <Stack.Screen name="OrderDetails" options={{headerTitle:"Details"}} component={ProfileScreens.OrderDetails}/>
+          
     </Stack.Navigator>
   )
 }

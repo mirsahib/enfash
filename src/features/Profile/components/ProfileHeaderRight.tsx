@@ -12,7 +12,7 @@ const ProfileHeaderRight = (props:ProfileRightHeaderProps) => {
     //     // three tier deep nested navigation
     //     navigation.navigate("EditProfile");
     // };
-    const {setIsHeaderRightPressed} = props
+    const {onPressed} = props
 
     return (
         <IconButton
@@ -20,7 +20,7 @@ const ProfileHeaderRight = (props:ProfileRightHeaderProps) => {
             icon="edit"
             iconColor={theme.colors.primary}
             iconSize={25}
-            onPress={() =>setIsHeaderRightPressed(state=>!state)}
+            onPress={() =>onPressed()}
         />
     );
 };

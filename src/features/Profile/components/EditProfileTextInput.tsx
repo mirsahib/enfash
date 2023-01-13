@@ -3,22 +3,23 @@ import React from 'react';
 import { useTheme } from 'react-native-paper';
 
 type EditProfileTextInputProps = {
+    title:string,
     placeHolderText: string
 }
 
 const EditProfileTextInput = (props:EditProfileTextInputProps) => {
     const theme = useTheme();
-    const {placeHolderText} = props
+    const {title,placeHolderText} = props
     return (
         <View
             style={{
                 backgroundColor: theme.colors.background,
-                padding: '4%',
+                padding: '3%',
                 borderRadius: 10,
-                marginVertical: '5%'
+                marginVertical: '2%'
             }}
         >
-            <Text style={{ color: theme.colors.primary }}>Name </Text>
+            <Text style={{ color: theme.colors.primary }}>{title} </Text>
             <TextInput
                 placeholder={placeHolderText}
                 placeholderTextColor={theme.colors.secondary}

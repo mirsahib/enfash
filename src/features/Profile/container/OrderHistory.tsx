@@ -1,8 +1,8 @@
 import { FlatList, View } from 'react-native'
 import React from 'react'
 import data from '@utils/OrderHistory'
-import Layout from '../wrapper/Layout'
 import OrderCard from '../components/OrderCard'
+import Layout from '@hoc/Layout'
 const OrderHistory = () => {
   return (
     <View style={{flex:1,paddingHorizontal:'5%',paddingTop:'5%'}}>

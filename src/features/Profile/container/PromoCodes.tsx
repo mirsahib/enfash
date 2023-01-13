@@ -3,7 +3,7 @@ import React from 'react'
 import CardView from '@components/CardView'
 import { useTheme } from 'react-native-paper'
 import { FlatList } from 'react-native-gesture-handler'
-import Layout from '../wrapper/Layout'
+import Layout from '@hoc/Layout'
 
 
 const PromoCodes = () => {

@@ -5,32 +5,18 @@ import TabNavigator from './TabNavigator';
 import { View } from 'react-native';
 import MessageScreens from '@features/Messages';
 import ProfileScreens from '@features/Profile';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { DrawerNavParams } from './utils/NavigationTypes';
 import ProfileHeaderRight from '@features/Profile/components/ProfileHeaderRight';
-import { useState } from 'react';
+import { useRef } from 'react';
+import { CanHandleRightHeaderPressed } from '@features/Profile/types';
 
 const Drawer = createDrawerNavigator<DrawerNavParams>();
-const Stack = createNativeStackNavigator();
-
-const OrderStack = () => (
-    <Stack.Navigator screenOptions={{ animation: 'slide_from_right' }}>
-        <Stack.Screen
-            name="OrderHistory"
-            options={{ headerShown: false }}
-            component={ProfileScreens.OrderHistory}
-        />
-        <Stack.Screen
-            name="OrderDetails"
-            options={{ headerShown: false }}
-            component={ProfileScreens.OrderDetails}
-        />
-    </Stack.Navigator>
-);
 
 const DrawerNavigator = () => {
-    const [isHeaderRightPressed,setIsHeaderRightPressed] = useState(false)
-
+    const headerRightPressRef = useRef<CanHandleRightHeaderPressed>(null)
+    const onHeaderRightPressed =()=>{
+        headerRightPressRef.current?.gotoEditProfile()
+    }
     return (
         <Drawer.Navigator initialRouteName="TabNav">
             <Drawer.Screen
@@ -54,13 +40,13 @@ const DrawerNavigator = () => {
                 options={{
                     drawerLabel: 'Profile',
                     headerTitle: 'Profile',
-                    headerRight: () => <ProfileHeaderRight setIsHeaderRightPressed={setIsHeaderRightPressed} />,
+                    headerRight: (props) => <ProfileHeaderRight {...props} onPressed={onHeaderRightPressed} />,
                     headerRightContainerStyle: { paddingHorizontal: '5%' }
                 }}
             >
                 {(props) => (
                     <ProfileScreens.Profile
-                        isHeaderRightPressed={isHeaderRightPressed}
+                        ref={headerRightPressRef}
                         {...props}
                     />
                 )}
@@ -68,7 +54,7 @@ const DrawerNavigator = () => {
             <Drawer.Screen
                 name="Order"
                 options={{ drawerLabel: 'Order History' }}
-                component={OrderStack}
+                component={ProfileScreens.OrderHistory}
             />
             <Drawer.Screen
                 name="PaymentMethod"

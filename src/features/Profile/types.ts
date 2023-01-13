@@ -33,9 +33,12 @@ type ProfilePropsType = {
     isHeaderRightPressed:boolean
 }
 type ProfileRightHeaderProps = {
-    setIsHeaderRightPressed:React.Dispatch<React.SetStateAction<boolean>>
+    onPressed:()=>void
 }
 
+type CanHandleRightHeaderPressed = {
+    gotoEditProfile:()=>void
+} 
 export type {
     OrderStatusTypes,
     OrderCardProps,
@@ -43,5 +46,6 @@ export type {
     PromptProps,
     TrackOrderStatusProps,
     ProfilePropsType,
-    ProfileRightHeaderProps
+    ProfileRightHeaderProps,
+    CanHandleRightHeaderPressed
 }

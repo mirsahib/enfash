@@ -11,7 +11,7 @@ const MainHeaderRight = () => {
 
   const gotoCartScreen = ()=>{
     // three tier deep nested navigation
-    navigation.navigate("HomeNav",{screen:"TabNav",params:{screen:"CartTab"}})
+    navigation.navigate("DrawerNav",{screen:"TabNav",params:{screen:"CartTab"}})
   }
 
   return (

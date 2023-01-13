@@ -1,7 +1,7 @@
 import { View } from 'react-native'
 import React from 'react'
 import { Text, useTheme } from 'react-native-paper'
-import Layout from '../wrapper/Layout'
+import Layout from '@hoc/Layout'
 import IconComponent from '@components/IconComponent'
 import Dash from '../components/Dash'
 import TrackOrderStatus from '../components/TrackOrderStatus'

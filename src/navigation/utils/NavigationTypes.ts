@@ -12,34 +12,38 @@ type ProductNavParams = {
     Review: any;
     WriteReview: any;
 };
-// type ProfileNavParams = {
-//   Profile: any;
-//   OrderHistory: any;
-//   OrderDetails: {
-//     orderId: string;
-//     orderStatus: OrderStatusTypes;
-//     total: number;
-//     orderDate: string;
-//     productList: {
-//       product: ProductType;
-//       quantity: number;
-//     }[];
-//     address: string;
-//   };
-//   Payment: any;
-//   Address: any;
-//   PromoCode: any;
-//   TrackOrder: any;
-//   Faq: any;
-// };
 type TabNavParams = {
     HomeTab: any;
     CartTab: any;
     WishlistTab: any;
 };
-type OrderNavParams = {
-    OrderHistory: any;
-    OrderDetails: {
+
+type DrawerNavParams = {
+    TabNav: NavigatorScreenParams<TabNavParams>;
+    Profile:any,
+    PaymentMethod: any;
+    Order: any;
+    Promocodes: any;
+    TrackOrder: any;
+    FAQ: any;
+    Message: any;
+    Logout: any;
+};
+
+type MainNavParams = {
+    DrawerNav: NavigatorScreenParams<DrawerNavParams>;
+    Search: any;
+    SearchByCatagory: {
+        headerTitle: string;
+    };
+    ProductNav: any;
+    EditProfile:{
+        name: string;
+        email: string;
+        phone: string
+        addressBook:{address:string,type:string}[]
+    };
+    OrderDetails:{
         orderId: string;
         orderStatus: OrderStatusTypes;
         total: number;
@@ -51,43 +55,18 @@ type OrderNavParams = {
         address: string;
     };
 };
-type DrawerNavParams = {
-    TabNav: TabNavParams;
-    Profile: {
-        onPressRight:()=>void
-    };
-    PaymentMethod: any;
-    Order: NavigatorScreenParams<OrderNavParams>;
-    Promocodes: any;
-    TrackOrder: any;
-    FAQ: any;
-    Message: any;
-    Logout: any;
-};
-
-type MainNavParams = {
-    DrawerNav: DrawerNavParams;
-    Search: any;
-    SearchByCatagory: {
-        headerTitle: string;
-    };
-    ProductNav: any;
-    EditProfile:any;
-    //AccountNav: NavigatorScreenParams<ProfileNavParams>;
-};
 
 //screen props
 type AuthRouteProps = RouteProp<AuthNavParams>;
 type ProductsRouteProps = RouteProp<ProductNavParams, 'Product'>;
 type SearchByCatagoryRouteProps = RouteProp<MainNavParams, 'SearchByCatagory'>;
 type TabRouteProps = RouteProp<TabNavParams>;
-//type OrderDetailsRouteProps = RouteProp<ProfileNavParams, 'OrderDetails'>;
-type OrderDetailsRouteProps = RouteProp<OrderNavParams, 'OrderDetails'>;
+type EditProfileRouteProps = RouteProp<MainNavParams, 'EditProfile'>;
+type OrderDetailsRouteProps = RouteProp<MainNavParams, 'OrderDetails'>;
 //route props
 type TabScreenProps = BottomTabScreenProps<TabNavParams>;
 type ProductScreenProps = NativeStackScreenProps<ProductNavParams>;
 type MainScreenProps = NativeStackScreenProps<MainNavParams>;
-//type ProfileScreenProps = NativeStackScreenProps<ProfileNavParams>;
 
 export type {
     AuthNavParams,
@@ -99,9 +78,9 @@ export type {
     ProductsRouteProps,
     TabRouteProps,
     OrderDetailsRouteProps,
+    EditProfileRouteProps,
     SearchByCatagoryRouteProps,
     TabScreenProps,
     ProductScreenProps,
     MainScreenProps
-    // ProfileScreenProps,
 };

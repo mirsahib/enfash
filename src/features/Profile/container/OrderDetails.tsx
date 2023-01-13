@@ -1,7 +1,7 @@
 import { Image, View } from 'react-native'
 import React from 'react'
 import { Text, useTheme } from 'react-native-paper'
-import Layout from '../wrapper/Layout'
+import Layout from '@hoc/Layout'
 import { OrderDetailsRouteProps } from '@navigation/utils/NavigationTypes'
 import { useRoute } from '@react-navigation/native'
 import { FlatList } from 'react-native-gesture-handler'
