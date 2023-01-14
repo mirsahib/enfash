@@ -58,12 +58,12 @@ const DrawerNavigator = () => {
             />
             <Drawer.Screen
                 name="PaymentMethod"
-                options={{}}
+                options={{ drawerLabel: 'Payment Method' }}
                 component={ProfileScreens.PaymentMethod}
             />
             <Drawer.Screen
                 name="TrackOrder"
-                options={{}}
+                options={{ drawerLabel: 'Track Order' }}
                 component={ProfileScreens.TrackOrder}
             />
             <Drawer.Screen

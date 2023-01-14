@@ -23,8 +23,8 @@ const MainNavigator = () => {
           }} component={HomeScreens.SearchByCatagory}/>
         <Stack.Screen name="ProductNav" options={{headerShown:false}} component={ProductNavigator}/>
         <Stack.Screen name="EditProfile" options={{headerTitle:"Edit Profile"}} component={ProfileScreens.EditProfile}/>
+        <Stack.Screen name="ManageAddress" options={{headerTitle:"Manage Address"}} component={ProfileScreens.ManageAddress}/>
         <Stack.Screen name="OrderDetails" options={{headerTitle:"Details"}} component={ProfileScreens.OrderDetails}/>
-          
     </Stack.Navigator>
   )
 }

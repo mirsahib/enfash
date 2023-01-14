@@ -7,6 +7,7 @@ import TrackOrder from "./container/TrackOrder";
 import Faq from "./container/Faq";
 import OrderDetails from "./container/OrderDetails";
 import EditProfile from "./container/EditProfile";
+import ManageAddress from "./container/ManageAddress";
 
 const screen={
     Profile:Profile,
@@ -17,7 +18,8 @@ const screen={
     TrackOrder:TrackOrder,
     Faq:Faq,
     OrderDetails:OrderDetails,
-    EditProfile:EditProfile
+    EditProfile:EditProfile,
+    ManageAddress:ManageAddress
 }
 
 export  default screen

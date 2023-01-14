@@ -39,6 +39,18 @@ type ProfileRightHeaderProps = {
 type CanHandleRightHeaderPressed = {
     gotoEditProfile:()=>void
 } 
+type AddAddressPropsType={
+    isModalVisible:boolean,
+    setModalVisibility:()=>void
+}
+
+type AddAddressCardProps = {
+    title: string
+    address:string,
+    status:"ACTIVE"|"DEACTIVE",
+    selectCard:()=>void
+}
+
 export type {
     OrderStatusTypes,
     OrderCardProps,
@@ -47,5 +59,7 @@ export type {
     TrackOrderStatusProps,
     ProfilePropsType,
     ProfileRightHeaderProps,
-    CanHandleRightHeaderPressed
+    CanHandleRightHeaderPressed,
+    AddAddressPropsType,
+    AddAddressCardProps
 }

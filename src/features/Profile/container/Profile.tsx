@@ -93,7 +93,7 @@ const Profile = (props: {}, ref: ForwardedRef<CanHandleRightHeaderPressed>) => {
                     </Text>
                     {ProfileData.addressBook.map((item, index) => (
                         <Text key={index}>
-                            {item.type}: {' ' + item.address}
+                            {item.title}: {' ' + item.address}
                         </Text>
                     ))}
                 </View>

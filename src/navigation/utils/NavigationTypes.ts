@@ -41,8 +41,9 @@ type MainNavParams = {
         name: string;
         email: string;
         phone: string
-        addressBook:{address:string,type:string}[]
+        addressBook:{id:string,address:string,title:string,status:"ACTIVE"|"DEACTIVE"}[]
     };
+    ManageAddress:{id:string,address:string,title:string,status:"ACTIVE"|"DEACTIVE"}[]
     OrderDetails:{
         orderId: string;
         orderStatus: OrderStatusTypes;
@@ -54,6 +55,7 @@ type MainNavParams = {
         }[];
         address: string;
     };
+
 };
 
 //screen props
@@ -62,6 +64,8 @@ type ProductsRouteProps = RouteProp<ProductNavParams, 'Product'>;
 type SearchByCatagoryRouteProps = RouteProp<MainNavParams, 'SearchByCatagory'>;
 type TabRouteProps = RouteProp<TabNavParams>;
 type EditProfileRouteProps = RouteProp<MainNavParams, 'EditProfile'>;
+type ManageAddressRouteProps = RouteProp<MainNavParams, 'ManageAddress'>;
+
 type OrderDetailsRouteProps = RouteProp<MainNavParams, 'OrderDetails'>;
 //route props
 type TabScreenProps = BottomTabScreenProps<TabNavParams>;
@@ -76,6 +80,7 @@ export type {
     MainNavParams,
     AuthRouteProps,
     ProductsRouteProps,
+    ManageAddressRouteProps,
     TabRouteProps,
     OrderDetailsRouteProps,
     EditProfileRouteProps,
