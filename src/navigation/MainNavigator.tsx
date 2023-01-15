@@ -6,7 +6,6 @@ import {MainNavParams} from './utils/NavigationTypes'
 import DrawerNavigator from './DrawerNavigator'
 import MainHeaderRight from '@components/MainHeaderRight'
 import ProfileScreens from '@features/Profile'
-import { View } from 'react-native'
 
 const Stack = createNativeStackNavigator<MainNavParams>()
 

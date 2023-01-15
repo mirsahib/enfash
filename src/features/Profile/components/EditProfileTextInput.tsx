@@ -24,6 +24,7 @@ const EditProfileTextInput = (props:EditProfileTextInputProps) => {
                 placeholder={placeHolderText}
                 placeholderTextColor={theme.colors.secondary}
                 underlineColorAndroid={theme.colors.secondary}
+                style={{color: theme.colors.primary}}
             />
         </View>
     );

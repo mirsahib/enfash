@@ -58,7 +58,7 @@ const DrawerNavigator = () => {
             />
             <Drawer.Screen
                 name="PaymentMethod"
-                options={{ drawerLabel: 'Payment Method' }}
+                options={{ drawerLabel: 'Payment Method',headerTitle:'Payment Method' }}
                 component={ProfileScreens.PaymentMethod}
             />
             <Drawer.Screen
