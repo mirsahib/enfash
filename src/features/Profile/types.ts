@@ -50,11 +50,18 @@ type AddAddressCardProps = {
     status:"ACTIVE"|"DEACTIVE",
     selectCard:()=>void
 }
-
+type OrderDetailsCardHeaderPropsType = {
+    orderId:string;
+    orderStatus:OrderStatusTypes;
+    total:number;
+    orderDate:string;
+    address:string;
+};
 export type {
     OrderStatusTypes,
     OrderCardProps,
     OrderDetailsCardProps,
+    OrderDetailsCardHeaderPropsType,
     PromptProps,
     TrackOrderStatusProps,
     ProfilePropsType,

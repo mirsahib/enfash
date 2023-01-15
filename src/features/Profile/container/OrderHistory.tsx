@@ -5,8 +5,9 @@ import OrderCard from '../components/OrderCard'
 import Layout from '@hoc/Layout'
 const OrderHistory = () => {
   return (
-    <View style={{flex:1,paddingHorizontal:'5%',paddingTop:'5%'}}>
+    <View style={{flex:1,paddingHorizontal:'5%'}}>
       <FlatList
+        contentContainerStyle={{paddingTop: '5%'}}
         data={data}
         keyExtractor={item=>item.orderId}
         renderItem={item=>(<OrderCard {...item.item}/>)}

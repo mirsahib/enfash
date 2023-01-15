@@ -53,7 +53,7 @@ const DrawerNavigator = () => {
             </Drawer.Screen>
             <Drawer.Screen
                 name="Order"
-                options={{ drawerLabel: 'Order History' }}
+                options={{ drawerLabel: 'Order History' ,headerTitle: 'Order History'}}
                 component={ProfileScreens.OrderHistory}
             />
             <Drawer.Screen
