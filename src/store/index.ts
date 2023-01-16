@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 import cart from './cart'
+import wishlist from './wishlist'
 
 const store = configureStore({
   reducer: {
-    shoppingCart:cart
+    shoppingCart:cart,
+    wishlist:wishlist
   },
 })
 
