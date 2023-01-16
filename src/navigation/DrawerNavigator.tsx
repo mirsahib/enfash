@@ -9,20 +9,40 @@ import { DrawerNavParams } from './utils/NavigationTypes';
 import ProfileHeaderRight from '@features/Profile/components/ProfileHeaderRight';
 import { useRef } from 'react';
 import { CanHandleRightHeaderPressed } from '@features/Profile/types';
+import CustomDrawer from './Components/CustomDrawer';
+import IconComponent from '@components/IconComponent';
+import { useTheme } from 'react-native-paper';
 
 const Drawer = createDrawerNavigator<DrawerNavParams>();
 
 const DrawerNavigator = () => {
-    const headerRightPressRef = useRef<CanHandleRightHeaderPressed>(null)
-    const onHeaderRightPressed =()=>{
-        headerRightPressRef.current?.gotoEditProfile()
-    }
+    const theme = useTheme()
+    const headerRightPressRef = useRef<CanHandleRightHeaderPressed>(null);
+    const onHeaderRightPressed = () => {
+        headerRightPressRef.current?.gotoEditProfile();
+    };
     return (
-        <Drawer.Navigator initialRouteName="TabNav">
+        <Drawer.Navigator
+            initialRouteName="TabNav"
+            drawerContent={(props) => <CustomDrawer {...props} />}
+            screenOptions={{
+                drawerActiveBackgroundColor:theme.colors.secondary,
+                drawerActiveTintColor:theme.colors.background,
+                drawerLabelStyle:{marginLeft:-20,fontSize:12},
+            }}
+        >
             <Drawer.Screen
                 name="TabNav"
                 options={{
                     drawerLabel: 'Home',
+                    drawerIcon: ({ color }) => (
+                        <IconComponent
+                            iconDirectory="AntDesign"
+                            name="home"
+                            size={25}
+                            color={color}
+                        />
+                    ),
                     headerTitle: () => <MainHeader />,
                     headerTitleAlign: 'center',
                     headerStyle: {
@@ -39,8 +59,21 @@ const DrawerNavigator = () => {
                 name="Profile"
                 options={{
                     drawerLabel: 'Profile',
+                    drawerIcon: ({ color }) => (
+                        <IconComponent
+                            iconDirectory="AntDesign"
+                            name="user"
+                            size={25}
+                            color={color}
+                        />
+                    ),
                     headerTitle: 'Profile',
-                    headerRight: (props) => <ProfileHeaderRight {...props} onPressed={onHeaderRightPressed} />,
+                    headerRight: (props) => (
+                        <ProfileHeaderRight
+                            {...props}
+                            onPressed={onHeaderRightPressed}
+                        />
+                    ),
                     headerRightContainerStyle: { paddingHorizontal: '5%' }
                 }}
             >
@@ -53,43 +86,90 @@ const DrawerNavigator = () => {
             </Drawer.Screen>
             <Drawer.Screen
                 name="Order"
-                options={{ drawerLabel: 'Order History' ,headerTitle: 'Order History'}}
+                options={{
+                    drawerIcon: ({ color }) => (
+                        <IconComponent
+                            iconDirectory="AntDesign"
+                            name="gift"
+                            size={25}
+                            color={color}
+                        />
+                    ),
+                    drawerLabel: 'Order History',
+                    headerTitle: 'Order History'
+                }}
                 component={ProfileScreens.OrderHistory}
             />
             <Drawer.Screen
                 name="PaymentMethod"
-                options={{ drawerLabel: 'Payment Method',headerTitle:'Payment Method' }}
+                options={{
+                    drawerIcon: ({ color }) => (
+                        <IconComponent
+                            iconDirectory="AntDesign"
+                            name="creditcard"
+                            size={25}
+                            color={color}
+                        />
+                    ),
+                    drawerLabel: 'Payment Method',
+                    headerTitle: 'Payment Method'
+                }}
                 component={ProfileScreens.PaymentMethod}
             />
             <Drawer.Screen
                 name="TrackOrder"
-                options={{ drawerLabel: 'Track Order' }}
+                options={{
+                    drawerLabel: 'Track Order',
+                    drawerIcon: ({ color }) => (
+                        <IconComponent
+                            iconDirectory="Feather"
+                            name="truck"
+                            size={25}
+                            color={color}
+                        />
+                    )
+                }}
                 component={ProfileScreens.TrackOrder}
             />
             <Drawer.Screen
                 name="Promocodes"
-                options={{}}
+                options={{
+                    drawerIcon: ({ color }) => (
+                        <IconComponent
+                            iconDirectory="AntDesign"
+                            name="tago"
+                            size={25}
+                            color={color}
+                        />
+                    )
+                }}
                 component={ProfileScreens.PromoCodes}
             />
             <Drawer.Screen
                 name="FAQ"
-                options={{}}
+                options={{drawerIcon: ({ color }) => (
+                    <IconComponent
+                        iconDirectory="AntDesign"
+                        name="questioncircleo"
+                        size={25}
+                        color={color}
+                    />
+                )}}
                 component={ProfileScreens.Faq}
             />
             <Drawer.Screen
                 name="Message"
-                options={{}}
+                options={{
+                    drawerIcon: ({ color }) => (
+                        <IconComponent
+                            iconDirectory="AntDesign"
+                            name="message1"
+                            size={25}
+                            color={color}
+                        />
+                    )
+                }}
                 component={MessageScreens.Message}
-            />
-            <Drawer.Screen
-                name="Logout"
-                // listeners={({navigation, route}) => ({
-                //   drawerItemPress: e => {
-                //     console.log('Logout clicked');
-                //   },
-                // })}
-                options={{}}
-                component={View}
             />
         </Drawer.Navigator>
     );
