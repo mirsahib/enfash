@@ -3,25 +3,39 @@ import {useTheme, Text} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {MainNavParams} from '@navigation/utils/NavigationTypes';
-import {CardProps} from '../types';
 import {Image, Pressable, View} from 'react-native';
 import IconButton from '@components/IconButton';
+import { useAppDispatch, useAppSelector } from '@store/index';
+import { addToWishlist } from '@store/wishlist';
+import { ProductType } from '@features/Product/types';
 
-const CardComponent = (props: CardProps) => {
+const CardComponent = (props: ProductType) => {
   const theme = useTheme();
   const navigation = useNavigation<NativeStackNavigationProp<MainNavParams>>();
+  const dispatch = useAppDispatch()
+  const wishlist = useAppSelector(state=>state.wishlist)
+  
   const handleNav = () => {
     navigation.navigate('ProductNav', {
       screen: 'Product',
-      params: {...props.data},
+      params: {...props},
     });
   };
+
+  const handleAddtoWishlist = () => {
+    dispatch(addToWishlist(props))
+  }
+  const isInWishlist = ()=>{
+    const item = wishlist.itemList.find(item => item.id === props.id)
+    return item!=undefined
+  }
+
   return (
     <Pressable
       onPress={() => handleNav()}
       style={{backgroundColor: theme.colors.background,width: 160,padding:'5%',borderRadius:10}}>
       <Image
-        source={{uri: props.data.image}}
+        source={{uri: props.image}}
         style={{flex: 1, height: 120, margin: '5%'}}
         resizeMode="contain"
       />
@@ -37,10 +51,10 @@ const CardComponent = (props: CardProps) => {
           alignItems: 'center',
         }}
         iconDirectory="MaterialIcons"
-        icon="favorite-outline"
+        icon={isInWishlist()?"favorite":"favorite-outline"}
         iconColor={theme.colors.tertiary}
         iconSize={25}
-        onPress={() => console.log('favorites')}
+        onPress={() => handleAddtoWishlist()}
       />
       <View style={{justifyContent: 'space-between'}}>
         <Text
@@ -48,10 +62,10 @@ const CardComponent = (props: CardProps) => {
           ellipsizeMode="tail"
           style={{flex: 1}}
           numberOfLines={3}>
-          {props.data.title}
+          {props.title}
         </Text>
         <View style={{flexDirection: 'row', justifyContent: 'space-between',alignItems:'center',marginTop:'5%'}}>
-          <Text variant="labelLarge">$ {props.data.price}</Text>
+          <Text variant="labelLarge">$ {props.price}</Text>
           <IconButton
             containerStyle={{
               backgroundColor: theme.colors.primaryContainer,

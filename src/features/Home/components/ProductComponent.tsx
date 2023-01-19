@@ -35,7 +35,7 @@ const ProductComponent = () => {
           margin: '2%',
         }}
         keyExtractor={item => item.id}
-        renderItem={item => <Card data={item.item} />}
+        renderItem={item => <Card {...item.item} />}
       />
     </View>
   );

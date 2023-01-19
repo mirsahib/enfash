@@ -1,7 +1,3 @@
-import {ProductType} from '@utils/containerTypes';
-type CardProps = {
-  data: ProductType;
-};
 
 type CatagoryCardProps = {
   id: string;
@@ -9,6 +5,4 @@ type CatagoryCardProps = {
   icon: string;
 };
 
-
-
-export type {CardProps, CatagoryCardProps};
+export type {CatagoryCardProps};

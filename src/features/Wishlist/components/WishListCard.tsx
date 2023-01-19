@@ -4,14 +4,27 @@ import { useTheme, Text } from 'react-native-paper';
 import IconComponent from '@components/IconComponent';
 import { CardComponentPropsType } from '../type';
 import IconButton from '@components/IconButton';
+import { useAppDispatch } from '@store/index';
+import { ProductType } from '@features/Product/types';
+import { removeFromWishlist } from '@store/wishlist';
+import { addTocart } from '@store/cart';
 
-const WishListCard = (props: CardComponentPropsType) => {
+const WishListCard = (props: ProductType) => {
     const theme = useTheme();
     const { image, title, price, rating } = props;
+    const dispatch = useAppDispatch()
 
     const handleNav = () => {
         console.log('go to product');
     };
+
+    const handleRemoveFromWishlist = () =>{
+        dispatch(removeFromWishlist(props))
+    }
+    const handleAddtoCart = () =>{
+        dispatch(addTocart(props))
+    }
+
     return (
         <Pressable
             onPress={() => handleNav()}
@@ -55,7 +68,7 @@ const WishListCard = (props: CardComponentPropsType) => {
                                 size={18}
                                 color={theme.colors.tertiary}
                             />
-                            <Text variant="labelLarge"> {rating}</Text>
+                            <Text variant="labelLarge">{rating.rate}</Text>
                         </View>
                     </View>
                 </View>
@@ -80,7 +93,7 @@ const WishListCard = (props: CardComponentPropsType) => {
                                 color: theme.colors.tertiary,
                                 borderless: true
                             }}
-                            onPress={() => console.log('Press')}
+                            onPress={() => handleAddtoCart()}
                             iconDirectory="AntDesign"
                             icon="shoppingcart"
                             iconColor={theme.colors.tertiary}
@@ -107,7 +120,7 @@ const WishListCard = (props: CardComponentPropsType) => {
                                 color: theme.colors.tertiary,
                                 borderless: true
                             }}
-                            onPress={() => console.log('Press')}
+                            onPress={() => handleRemoveFromWishlist()}
                             iconDirectory="EvilIcons"
                             icon="trash"
                             iconColor={theme.colors.tertiary}
