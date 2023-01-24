@@ -26,7 +26,7 @@ const DrawerNavigator = () => {
             initialRouteName="TabNav"
             drawerContent={(props) => <CustomDrawer {...props} />}
             screenOptions={{
-                drawerActiveBackgroundColor:theme.colors.secondary,
+                drawerActiveBackgroundColor:theme.colors.tertiary,
                 drawerActiveTintColor:theme.colors.background,
                 drawerLabelStyle:{marginLeft:-20,fontSize:12},
             }}
