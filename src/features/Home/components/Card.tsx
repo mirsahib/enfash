@@ -7,6 +7,7 @@ import {Image, Pressable, View} from 'react-native';
 import IconButton from '@components/IconButton';
 import { useAppDispatch, useAppSelector } from '@store/index';
 import { addToWishlist } from '@store/wishlist';
+import { addTocart } from '@store/cart';
 import { ProductType } from '@features/Product/types';
 import Toast from 'react-native-toast-message';
 
@@ -16,6 +17,7 @@ const CardComponent = (props: ProductType) => {
   const navigation = useNavigation<NativeStackNavigationProp<MainNavParams>>();
   const dispatch = useAppDispatch()
   const wishlist = useAppSelector(state=>state.wishlist)
+  const cart = useAppSelector(state=>state.shoppingCart)
   
   const handleNav = () => {
     navigation.navigate('ProductNav', {
@@ -26,15 +28,31 @@ const CardComponent = (props: ProductType) => {
 
   const handleAddtoWishlist = () => {
     Toast.show({
-      type:"success",
+      type:"info",
       text1:"Item added to wishlist",
       text2:props.title
     })
     dispatch(addToWishlist(props))
   }
+
+  const handleAddtoCart = ()=>{
+    Toast.show({
+      type:"success",
+      text1:"Item added to cart",
+      text2:props.title
+    })
+    dispatch(addTocart(props))
+  }
+
   const isInWishlist = ()=>{
     const item = wishlist.itemList.find(item => item.id === props.id)
-    return item!=undefined
+    return item===undefined
+  }
+
+  const isInCart = ()=>{
+    const itemList = cart.itemList
+    const product = itemList.find(item => item.product?.id===props.id)
+    return product===undefined
   }
 
   return (
@@ -58,7 +76,7 @@ const CardComponent = (props: ProductType) => {
           alignItems: 'center',
         }}
         iconDirectory="MaterialIcons"
-        icon={isInWishlist()?"favorite":"favorite-outline"}
+        icon={isInWishlist()?"favorite-outline":"favorite"}
         iconColor={theme.colors.tertiary}
         iconSize={25}
         onPress={() => handleAddtoWishlist()}
@@ -81,11 +99,11 @@ const CardComponent = (props: ProductType) => {
               justifyContent: 'center',
               alignItems: 'center',
             }}
-            iconDirectory="FontAwesome5"
-            icon="shopping-basket"
+            iconDirectory={isInCart()?"AntDesign":"Entypo"}
+            icon={isInCart()?"shoppingcart":"shopping-cart"}
             iconColor={theme.colors.tertiary}
             iconSize={20}
-            onPress={() => console.log('cart')}
+            onPress={() => handleAddtoCart()}
           />
         </View>
       </View>
