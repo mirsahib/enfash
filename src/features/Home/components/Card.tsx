@@ -8,6 +8,8 @@ import IconButton from '@components/IconButton';
 import { useAppDispatch, useAppSelector } from '@store/index';
 import { addToWishlist } from '@store/wishlist';
 import { ProductType } from '@features/Product/types';
+import Toast from 'react-native-toast-message';
+
 
 const CardComponent = (props: ProductType) => {
   const theme = useTheme();
@@ -23,6 +25,11 @@ const CardComponent = (props: ProductType) => {
   };
 
   const handleAddtoWishlist = () => {
+    Toast.show({
+      type:"success",
+      text1:"Item added to wishlist",
+      text2:props.title
+    })
     dispatch(addToWishlist(props))
   }
   const isInWishlist = ()=>{

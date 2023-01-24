@@ -28,7 +28,7 @@ const SearchByCatagory = () => {
           margin: '2%',
         }}
         keyExtractor={item => item.id}
-        renderItem={item => <CardComponent data={item.item} />}
+        renderItem={item => <CardComponent {...item.item} />}
       />
     </View>
   );

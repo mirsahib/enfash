@@ -19,7 +19,6 @@ const wishlistSlice = createSlice({
             if(itemIndex==-1){
                 state.itemList.push(newItems)
             }
-            console.log('item added',state.itemList.length)
         },
         removeFromWishlist(state,action:PayloadAction<ProductType>){
             const newItem = action.payload

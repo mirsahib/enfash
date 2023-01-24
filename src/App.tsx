@@ -4,6 +4,7 @@ import { DefaultTheme, Provider as PaperProvider, configureFonts } from 'react-n
 import AppContainer from './navigation/index'
 import store from './store/'
 import { Provider } from 'react-redux';
+import Toast from 'react-native-toast-message';
 
 const fontConfig = {
   regular: {
@@ -54,6 +55,7 @@ const App = () => {
     <Provider store={store}>
       <PaperProvider theme={theme}>
         <AppContainer />
+        <Toast position='top' topOffset={60}/>
       </PaperProvider>
     </Provider>
   )
