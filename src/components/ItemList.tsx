@@ -1,11 +1,11 @@
-import { View, Image, TouchableOpacity } from 'react-native'
+import { View, Image, Pressable } from 'react-native'
 import React from 'react'
 import { CounterButtonRounded } from '@components/CounterButton'
-import Icon from 'react-native-vector-icons/AntDesign'
-import { Text } from 'react-native-paper'
+import { Text, useTheme } from 'react-native-paper'
 import { ProductType } from '@utils/containerTypes'
 import { useAppDispatch } from '@store/index'
-import { addTocart, removeFromCart } from '@store/cart'
+import { decreaseCart, increaseCart, removeFromCart } from '@store/cart'
+import IconButton from './IconButton'
 
 type ItemListProps = {
     data: {
@@ -16,38 +16,106 @@ type ItemListProps = {
 }
 
 const ItemList = (props: ItemListProps) => {
+    const theme = useTheme()
 
-    const product = props.data.product
+    const product= props.data.product || {} as ProductType
+    const {title,image,price} = product
+    
     const dispatch = useAppDispatch()
 
-    const addItem = () => {
-        if(product){
-            dispatch(addTocart(product))
-        }
+    const increaseItem = () => {
+        dispatch(increaseCart(product))
     }
-    const removeItem = () => {
-        if(product){
-            dispatch(removeFromCart(product))
-        }
+    const decreaseItem = () => {
+        dispatch(decreaseCart(product))
+    }
+
+    const removeItem = () =>{
+        dispatch(removeFromCart(product))
     }
 
 
     return (
-        <View style={{ padding: '5%', flexDirection: 'row' }}>
-            <Image source={{ uri: product?.image }} style={{ width: 80, height: 80, flex: 1 }} resizeMode='contain' />
-            <View style={{ flex: 2, justifyContent: 'space-between' }}>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                    <Text variant='titleSmall' adjustsFontSizeToFit ellipsizeMode='tail' style={{ flex: 1 }} numberOfLines={2}>{product?.title}</Text>
-                    <TouchableOpacity onPress={() => console.log('delete')} style={{ backgroundColor: 'black', justifyContent: 'center', alignItems: 'center', width: 15, height: 15, borderRadius: 15 / 2 }}>
-                        <Icon name="close" size={15} color="white" />
-                    </TouchableOpacity>
+        <Pressable
+            // onPress={() => handleNav()}
+            style={{
+                backgroundColor: theme.colors.background,
+                padding: '3%',
+                borderRadius: 10
+            }}
+        >
+            <View style={{ flexDirection: 'row' }}>
+                <Image
+                    source={{ uri: image }}
+                    style={{ flex: 1, height: 80 }}
+                />
+                <View style={{ flex: 2, marginHorizontal: '5%' }}>
+                    <Text
+                        variant="labelSmall"
+                        ellipsizeMode="tail"
+                        style={{ flex: 1 }}
+                        numberOfLines={2}
+                    >
+                        {title}
+                    </Text>
+                    <Text variant="labelLarge">$ {price}</Text>
+                    <View
+                        style={{
+                            flexDirection: 'row',
+                            alignItems: 'center',
+                            justifyContent: 'space-between'
+                        }}
+                    >
+                        <View
+                            style={{
+                                flexDirection: 'row',
+                                alignItems: 'center'
+                            }}
+                        >
+                            
+                        </View>
+                    </View>
                 </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                    <Text variant='labelLarge' >$ {props.data.productPrice.toFixed(2)}</Text>
-                    <CounterButtonRounded defaultValue={props.data.count} buttonLeftAction={() => removeItem()} buttonRightAction={() => addItem()} buttonWidth={20} />
+                <View style={{ flex: 1, justifyContent: 'space-between' }}>
+                    <View
+                        style={{
+                            borderRadius: 20,
+                            justifyContent: 'center',
+                            alignItems: 'center'
+                        }}
+                    >
+                        <IconButton
+                            containerStyle={{
+                                width: 35,
+                                height: 35,
+                                borderRadius: 35 / 2,
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                backgroundColor: theme.colors.primaryContainer
+                            }}
+                            android_ripple={{
+                                color: theme.colors.primary,
+                                borderless: true
+                            }}
+                            onPress={() => removeItem()}
+                            iconDirectory="EvilIcons"
+                            icon="trash"
+                            iconColor={theme.colors.primary}
+                            iconSize={30}
+                        />
+                    </View>
+                    <View
+                        style={{
+                            borderRadius: 20,
+                            justifyContent: 'center',
+                            alignItems: 'center'
+                        }}
+                    >
+                        <CounterButtonRounded defaultValue={props.data.count} buttonLeftAction={() => decreaseItem()} buttonRightAction={() => increaseItem()} buttonWidth={20} />
+                    </View>
                 </View>
             </View>
-        </View>
+        </Pressable>
 
     )
 }

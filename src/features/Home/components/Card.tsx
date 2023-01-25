@@ -7,7 +7,7 @@ import {Image, Pressable, View} from 'react-native';
 import IconButton from '@components/IconButton';
 import { useAppDispatch, useAppSelector } from '@store/index';
 import { addToWishlist } from '@store/wishlist';
-import { addTocart } from '@store/cart';
+import { addToCart } from '@store/cart';
 import { ProductType } from '@features/Product/types';
 import Toast from 'react-native-toast-message';
 
@@ -41,7 +41,7 @@ const CardComponent = (props: ProductType) => {
       text1:"Item added to cart",
       text2:props.title
     })
-    dispatch(addTocart(props))
+    dispatch(addToCart(props))
   }
 
   const isInWishlist = ()=>{

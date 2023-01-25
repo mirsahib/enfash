@@ -56,7 +56,7 @@ export const CounterButtonRounded = (props: CounterButtonProps) => {
         <Text style={{ fontSize: props.textSize ?? 16, color: props.textColor ?? "black" }}>{props.defaultValue}</Text>
       </View>
       <TouchableOpacity onPress={() => props.buttonRightAction()} style={[buttonStyle({buttonColor:props.buttonColor??'black',buttonWidth:props.buttonWidth??20,buttonHeight:props.buttonheight??20}).btnLeft,{borderRadius:10}]} >
-        <Icon name={props.leftBtnIcon ?? 'plus'} size={props.iconSize ?? 20} color={props.iconColor ?? "white"} />
+        <Icon name={props.leftBtnIcon ?? 'plus'} size={props.iconSize ?? 15} color={props.iconColor ?? "white"} />
       </TouchableOpacity>
     </View>
   )
