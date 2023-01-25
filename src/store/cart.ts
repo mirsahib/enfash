@@ -114,7 +114,7 @@ const cartSlice = createSlice({
             const productPrice = state.itemList[productIndex].productPrice;
             const count = state.itemList[productIndex].count;
             state.itemList.splice(productIndex, 1);
-            state.totalItem = state.totalItem - count;
+            state.totalItem = state.totalItem - 1;
             state.totalPrice = state.totalPrice - productPrice;
         }
     }

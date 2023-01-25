@@ -6,14 +6,15 @@ import {
 } from '@navigation/utils/NavigationTypes';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import {Button, Divider, Text, useTheme} from 'react-native-paper';
-import {addToCartOnce} from '@store/cart';
+import {addToCart} from '@store/cart';
 import {useAppDispatch, useAppSelector} from '@store/index';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import ReviewCard from '../components/ReviewCard';
 import IconComponent from '@components/IconComponent';
 import Layout from '@hoc/Layout';
 import IconButton from '@components/IconButton';
+import Toast from 'react-native-toast-message';
+import {addToWishlist} from '@store/wishlist'
 
 const {width} = Dimensions.get('screen');
 
@@ -24,14 +25,26 @@ const Product = () => {
   const dispatch = useAppDispatch();
   const products = useAppSelector(state => state.shoppingCart.itemList);
   const product = products.find(item => item.product?.id === params.id);
+  const wishlist = useAppSelector(state=> state.wishlist)
 
   const addItem = () => {
-    dispatch(addToCartOnce(params));
+    dispatch(addToCart(params));
   };
   const gotoReviewScreen = () => {
     navigation.navigate('ProductNav', {screen: 'Review'});
   };
-
+  const handleAddtoWishlist = () => {
+    Toast.show({
+      type:"info",
+      text1:"Item added to wishlist",
+      text2:params.title
+    })
+    dispatch(addToWishlist(params))
+  }
+  const isInWishlist = ()=>{
+    const item = wishlist.itemList.find(item => item.id === params.id)
+    return item===undefined
+  }
   return (
     <ScrollView
       style={{
@@ -74,10 +87,10 @@ const Product = () => {
               alignItems: 'center',
             }}
             iconDirectory="MaterialIcons"
-            icon="favorite-outline"
-            iconColor={theme.colors.tertiary}
+            icon={isInWishlist()?"favorite-outline":"favorite"}
+            iconColor={theme.colors.primary}
             iconSize={25}
-            onPress={() => console.log('favorites')}
+            onPress={() => handleAddtoWishlist()}
           />
         </View>
         <View style={{flexDirection: 'row'}}>

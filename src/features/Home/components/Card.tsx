@@ -77,7 +77,7 @@ const CardComponent = (props: ProductType) => {
         }}
         iconDirectory="MaterialIcons"
         icon={isInWishlist()?"favorite-outline":"favorite"}
-        iconColor={theme.colors.tertiary}
+        iconColor={theme.colors.primary}
         iconSize={25}
         onPress={() => handleAddtoWishlist()}
       />
@@ -101,7 +101,7 @@ const CardComponent = (props: ProductType) => {
             }}
             iconDirectory={isInCart()?"AntDesign":"Entypo"}
             icon={isInCart()?"shoppingcart":"shopping-cart"}
-            iconColor={theme.colors.tertiary}
+            iconColor={theme.colors.primary}
             iconSize={20}
             onPress={() => handleAddtoCart()}
           />

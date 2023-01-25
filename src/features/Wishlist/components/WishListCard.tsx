@@ -7,7 +7,7 @@ import IconButton from '@components/IconButton';
 import { useAppDispatch } from '@store/index';
 import { ProductType } from '@features/Product/types';
 import { removeFromWishlist } from '@store/wishlist';
-import { addTocart } from '@store/cart';
+import { addToCart } from '@store/cart';
 
 const WishListCard = (props: ProductType) => {
     const theme = useTheme();
@@ -22,7 +22,7 @@ const WishListCard = (props: ProductType) => {
         dispatch(removeFromWishlist(props))
     }
     const handleAddtoCart = () =>{
-        dispatch(addTocart(props))
+        dispatch(addToCart(props))
     }
 
     return (
@@ -66,7 +66,7 @@ const WishListCard = (props: ProductType) => {
                                 iconDirectory="Entypo"
                                 name="star"
                                 size={18}
-                                color={theme.colors.tertiary}
+                                color={theme.colors.primary}
                             />
                             <Text variant="labelLarge">{rating.rate}</Text>
                         </View>
@@ -90,13 +90,13 @@ const WishListCard = (props: ProductType) => {
                                 backgroundColor: theme.colors.primaryContainer
                             }}
                             android_ripple={{
-                                color: theme.colors.tertiary,
+                                color: theme.colors.primary,
                                 borderless: true
                             }}
                             onPress={() => handleAddtoCart()}
                             iconDirectory="AntDesign"
                             icon="shoppingcart"
-                            iconColor={theme.colors.tertiary}
+                            iconColor={theme.colors.primary}
                             iconSize={25}
                         />
                     </View>
@@ -123,7 +123,7 @@ const WishListCard = (props: ProductType) => {
                             onPress={() => handleRemoveFromWishlist()}
                             iconDirectory="EvilIcons"
                             icon="trash"
-                            iconColor={theme.colors.tertiary}
+                            iconColor={theme.colors.primary}
                             iconSize={30}
                         />
                     </View>
